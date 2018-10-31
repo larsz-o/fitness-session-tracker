@@ -13,7 +13,6 @@ function* fetchClients() {
 
 function* clientSaga() {
     yield takeLatest('FETCH_CLIENTS', fetchClients);
-
   }
   
   export default clientSaga;

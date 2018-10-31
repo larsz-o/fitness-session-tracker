@@ -23,7 +23,18 @@ router.get('/', (req, res) => {
  * POST routes 
  */
 router.post('/', (req, res) => {
-
+    if(req.isAuthenticated()){
+        const session = req.body;
+        const query = `INSERT INTO "sessions" ("date", "client_id") VALUES ($1, $2);`;
+        pool.query(query, [session.date, session.client]).then((results) => {
+            res.sendStatus(201); 
+        }).catch((error) => {
+            console.log('Error posting session', error); 
+            res.sendStatus(500);
+        })
+    } else {
+        res.sendStatus(403); 
+    }
 });
 
 module.exports = router;

@@ -9,7 +9,6 @@ class UserPage extends Component {
     this.state = {
       open: false,
       client: '',
-      today: '', 
       date: ''
     }
   }
@@ -24,7 +23,7 @@ class UserPage extends Component {
     let date = new Date(); 
     let today = moment(date).format('YYYY-MM-DD');
     this.setState({
-      today: today
+      date: today
     });
     console.log(today); 
   }
@@ -61,7 +60,7 @@ class UserPage extends Component {
                 )
               })}
               </NativeSelect>
-              <TextField onChange={(event)=>this.handleChangeFor(event, 'date')} type="date" defaultValue={this.state.today} />
+              <TextField onChange={(event)=>this.handleChangeFor(event, 'date')} type="date" value={this.state.date} />
             </DialogContent>
             <DialogActions>
               <Button onClick={this.handleClose}>Cancel</Button>
