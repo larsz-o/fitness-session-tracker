@@ -15,8 +15,12 @@ class ManageClients extends Component {
     }
   }
   addClient = () => {
-    console.log('adding client'); 
     this.props.dispatch({type: 'ADD_CLIENT', payload: this.state})
+  }
+  changeView = () => {
+    this.setState({
+      view: ''
+    })
   }
   handleChangeFor = (event, property) => {
     this.setState({
@@ -39,7 +43,9 @@ class ManageClients extends Component {
           <TextField type="text" label="Last Name" onChange={(event)=>this.handleChangeFor(event, 'last_name')}/>
           <TextField type="text" label="Phone Number" onChange={(event)=>this.handleChangeFor(event, 'phone_number')}/>
           <TextField type="text" label="Email Address" onChange={(event)=>this.handleChangeFor(event, 'email_address')}/>
-          <Button variant="outlined" color="secondary" onClick={this.addClient}>Add</Button>
+          <Button color="secondary" onClick={this.addClient}>Add</Button>
+          <Button onClick={this.changeView}>Cancel</Button>
+         
         </FormControl>}
       </div>
     );

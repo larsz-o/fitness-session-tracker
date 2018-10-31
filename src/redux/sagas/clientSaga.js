@@ -15,8 +15,10 @@ function* addClient(action) {
         // post a new client 
         yield axios.post('/api/clients', action.payload);
         yield put ({ type: 'FETCH_CLIENTS'}); 
+        alert('Success!');
     } catch (error) {
         console.log('Error adding clients', error); 
+        alert('Error adding client'); 
     }
 }
 function* clientSaga() {
