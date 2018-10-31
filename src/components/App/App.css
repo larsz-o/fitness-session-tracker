@@ -10,8 +10,8 @@ body {
 .flex-container-home{
     display: flex; 
     flex-direction: row; 
-    justify-content: center;
-    margin-top: 20vh;
+    justify-content: left;
+    margin-top: 10vh;
 }
 form {
     background-color: #dbd5d5;
