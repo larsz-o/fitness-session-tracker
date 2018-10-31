@@ -1,0 +1,33 @@
+.nav-title {
+    font-size: 24px;
+    font-family: 'Roboto';
+    font-weight: 700;
+    display: inline-block;
+    color: black;
+    padding-left: 10px;
+}
+
+.nav {
+  overflow: hidden;
+  background-color: plum;
+}
+
+.nav-link {
+  float: left;
+  color: black;
+  background-color: plum;
+  text-align: center;
+  padding: 24px 10px;
+  text-decoration: none;
+  font-size: 15px;
+
+  /* these last two make the logout button in
+  the nav bar look like another link */
+  border:none;
+  cursor: pointer;
+  outline:0;
+}
+
+.nav-right {
+  float: right;
+}
