@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button, Dialog, DialogTitle, DialogContent, DialogActions, NativeSelect, TextField } from '@material-ui/core';
+import { Button, Dialog, DialogTitle, DialogContent, DialogActions, DialogContentText, TextField } from '@material-ui/core';
 import moment from 'moment';
 
 
@@ -50,6 +50,7 @@ class LogSessionForm extends Component {
                 <Dialog open={this.state.open} onClose={this.handleClose}>
                     <DialogTitle>Log Session</DialogTitle>
                     <DialogContent>
+                        <DialogContentText>Select Date</DialogContentText>
                         <TextField onChange={(event) => this.handleChangeFor(event, 'date')} type="date" value={this.state.date} />
                     </DialogContent>
                     <DialogActions>

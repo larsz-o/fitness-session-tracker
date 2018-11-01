@@ -7,8 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
     if(req.isAuthenticated()){
-        //will need to join to get more information here about the client 
-        const query = `SELECT * FROM "sessions";`; 
+        const query = `SELECT * FROM "sessions" JOIN "clients" ON "sessions"."client_id" = "clients"."id";`; 
         pool.query(query).then((results) => {
             res.send(results.rows); 
         }).catch((error) => {
