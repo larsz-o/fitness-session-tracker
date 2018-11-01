@@ -9,13 +9,13 @@
 
 .nav {
   overflow: hidden;
-  background-color: plum;
+  background-color:#1fcecb;
 }
 
 .nav-link {
   float: left;
   color: black;
-  background-color: plum;
+  background-color: #1fcecb;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;

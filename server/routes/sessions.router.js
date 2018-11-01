@@ -7,7 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
     if(req.isAuthenticated()){
-        const query = `SELECT * FROM "sessions" JOIN "clients" ON "sessions"."client_id" = "clients"."id" ORDER BY "date" DESC;`; 
+        const query = `SELECT *, "sessions"."id" as "session_id" FROM "sessions" JOIN "clients" ON "sessions"."client_id" = "clients"."id" ORDER BY "date" DESC;`; 
         pool.query(query).then((results) => {
             res.send(results.rows); 
         }).catch((error) => {
@@ -36,5 +36,29 @@ router.post('/', (req, res) => {
         res.sendStatus(403); 
     }
 });
-
+router.delete('/', (req, res) => {
+    if(req.isAuthenticated()){
+        let id = req.query.id; 
+        const query = `DELETE FROM "sessions" WHERE "id" = $1;`;
+        pool.query(query, [id]).then((results) => {
+            res.sendStatus(200);
+        }).catch((error) => {
+            console.log('Error deleting session', error); 
+        })
+    } else {
+        res.sendStatus(403); 
+    }
+})
+router.delete('/clear', (req, res) => {
+    if(req.isAuthenticated()){
+        const query = `DELETE FROM "sessions" WHERE "client_id" = $1;`;
+        pool.query(query, [req.query.id]).then((results) => {
+            res.sendStatus(200);
+        }).catch((error) => {
+            console.log('Error clearing card', error); 
+        })
+    } else {
+        res.sendStatus(403); 
+    }
+})
 module.exports = router;

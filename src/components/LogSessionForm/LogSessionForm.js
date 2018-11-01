@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button, Dialog, DialogTitle, DialogContent, DialogActions, DialogContentText, TextField } from '@material-ui/core';
+import { IconButton, Button, Dialog, DialogTitle, DialogContent, DialogActions, DialogContentText, TextField } from '@material-ui/core';
 import moment from 'moment';
-
+import { AddBox } from '@material-ui/icons'; 
 
 class LogSessionForm extends Component {
     constructor(props) {
@@ -45,8 +45,8 @@ class LogSessionForm extends Component {
     }
     render() {
         return (
-            <div className="float-right">
-                <Button onClick={this.handleOpen} color="primary">Log Session</Button>
+            <div className="sticky-right">
+                <IconButton onClick={this.handleOpen} color="primary" variant="contained"><AddBox/>Log Session</IconButton>
                 <Dialog open={this.state.open} onClose={this.handleClose}>
                     <DialogTitle>Log Session</DialogTitle>
                     <DialogContent>

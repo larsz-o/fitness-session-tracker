@@ -2,22 +2,33 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0px;
 }
-
 .alert {
-    background-color: #ff4545;
     margin: 50px;
+}
+.date{
+    padding: 1vh; 
 }
 .flex-container{
     display: flex; 
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: center; 
     padding: 5px; 
     margin-top: 5vh;
     margin-bottom: 5vh;
 }
-.float-right{
-    float: right; 
+.flex-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    justify-content: space-evenly;
+   
+}
+.flex-box-header{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    justify-content: space-between; 
 }
 form {
     background-color: #dbd5d5;

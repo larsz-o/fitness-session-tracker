@@ -42,26 +42,26 @@ class ManageClients extends Component {
         </div>
         <div className="flex-container">
           {this.state.view === 'add' &&
-            <div>
+            <form>
               <FormControl>
                 <TextField autoComplete="off" type="text" variant="outlined" label="First Name" onChange={(event) => this.handleChangeFor(event, 'first_name')} />
-              </FormControl><br/>
+              </FormControl>
               <FormControl>
                 <TextField autoComplete="off" type="text" variant="outlined" label="Last Name" onChange={(event) => this.handleChangeFor(event, 'last_name')} />
-              </FormControl><br/>
+              </FormControl>
               <FormControl>
                 <TextField autoComplete="off" type="text" variant="outlined" label="Phone Number" onChange={(event) => this.handleChangeFor(event, 'phone_number')} />
-              </FormControl><br/>
+              </FormControl>
               <FormControl>
                 <TextField autoComplete="off" type="text" variant="outlined" label="Email Address" onChange={(event) => this.handleChangeFor(event, 'email_address')} />
-              </FormControl><br/>
+              </FormControl>
               <FormControl>
                 <Button onClick={this.changeView}>Cancel</Button>
               </FormControl>
               <FormControl>
-                <Button color="secondary" variant="contained" size="large" onClick={this.addClient}>Add</Button>
+                <Button color="primary" variant="contained" size="large" onClick={this.addClient}>Add</Button>
               </FormControl>
-            </div>}
+            </form>}
         </div>
       </div>
     );
