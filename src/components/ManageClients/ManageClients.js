@@ -42,7 +42,7 @@ class ManageClients extends Component {
         </div>
         <div className="flex-container">
           {this.state.view === 'add' &&
-            <form>
+            <div className="add-form">
               <FormControl>
                 <TextField autoComplete="off" type="text" variant="outlined" label="First Name" onChange={(event) => this.handleChangeFor(event, 'first_name')} />
               </FormControl>
@@ -54,14 +54,14 @@ class ManageClients extends Component {
               </FormControl>
               <FormControl>
                 <TextField autoComplete="off" type="text" variant="outlined" label="Email Address" onChange={(event) => this.handleChangeFor(event, 'email_address')} />
-              </FormControl>
+              </FormControl><br/>
               <FormControl>
                 <Button onClick={this.changeView}>Cancel</Button>
               </FormControl>
               <FormControl>
                 <Button color="primary" variant="contained" size="large" onClick={this.addClient}>Add</Button>
               </FormControl>
-            </form>}
+            </div>}
         </div>
       </div>
     );

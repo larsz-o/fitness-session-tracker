@@ -2,8 +2,14 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0px;
 }
+.add-form{
+
+}
 .alert {
     margin: 50px;
+}
+.bottom {
+    margin-bottom: 1%;
 }
 .date{
     padding: 1vh; 

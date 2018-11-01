@@ -26,8 +26,8 @@ class ClientCard extends Component {
                 <div className="card">
                     <div className="flex-box-header">
                         <h3>{this.props.clientToView.first_name} {this.props.clientToView.last_name}</h3>
-                        {sessions.length >= 7 && <Email clientToView={this.props.clientToView} session={sessions}/>}
-                        {sessions.length < 10 && <LogSessions client={this.props.clientToView} />}
+                        {sessions.length >= (this.props.clientToView.sessions - 3) && <Email clientToView={this.props.clientToView} session={sessions}/>}
+                        {sessions.length < this.props.clientToView.sessions && <LogSessions client={this.props.clientToView} />}
                     </div>
                     <div className="flex-box">
                         {sessions.map((session, i) => {
@@ -38,7 +38,7 @@ class ClientCard extends Component {
                             );
                         })}
                     </div>
-                    {sessions.length > 0 && <Button onClick={this.clearCard}>Clear Card</Button>}
+                    {sessions.length > 0 && <div className="bottom"><Button onClick={this.clearCard}>Clear Card</Button></div>}
                 </div>
             </div>
         );

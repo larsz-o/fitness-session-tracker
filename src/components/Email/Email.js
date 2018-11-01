@@ -10,8 +10,8 @@ class Email extends Component {
             open: false, 
             subject: 'Personal Training Session Renewal Reminder', 
             message: `Hi ${this.props.clientToView.first_name}! 
-        I hope you have enjoyed our personal training sessions. I'm writing to let you know that you just finished ${this.props.session.length} of your 10 prepaid sessions. Nice work! 
-        If you'd like to sign up for more, you can do so by visiting http://www.fitnessmeetswellness.com or by calling me at (508) 366-8700. 
+        I hope you have enjoyed our personal training sessions. I'm writing to let you know that you just finished ${this.props.session.length} of your ${this.props.clientToView.sessions} prepaid sessions. Nice work! 
+        If you'd like to sign up for more, you can do so by calling me at (508) 366-8700 or by dropping by the studio. 
         Thanks for being a great client! 
 
 From, 
