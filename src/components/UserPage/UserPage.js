@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SessionsTable from '../SessionsTable/SessionsTable';
-import LogSessions from '../LogSessionForm/LogSessionForm'; 
+import ClientCard from '../ClientCard/ClientCard';
+import { NativeSelect } from '@material-ui/core';
 
 class UserPage extends Component {
   constructor(props) {
@@ -10,22 +10,42 @@ class UserPage extends Component {
       open: false,
     }
   }
-  componentDidMount(){
+  componentDidMount() {
     this.getClients();
     this.getSessions();
   }
   getClients = () => {
-    this.props.dispatch({type: 'FETCH_CLIENTS'});
+    this.props.dispatch({ type: 'FETCH_CLIENTS' });
   }
   getSessions = () => {
-    this.props.dispatch({type: 'FETCH_SESSIONS'}); 
+    this.props.dispatch({ type: 'FETCH_SESSIONS' });
   }
-
+  handleClientChange = (event) => {
+    let id = parseInt(event.target.value); 
+    // gets the whole client object that matches the client ID to send to redux 
+    let clientToView = this.props.clients.filter(client => client.id === id); 
+    this.props.dispatch({type: 'SET_CURRENT_CLIENT', payload: clientToView}); 
+  }
   render() {
     return (
       <div>
-        <LogSessions/>
-        <SessionsTable/>
+        <div className="flex-container">
+        <NativeSelect onChange={(event)=>this.handleClientChange(event)}>
+        <option value=''>---Select a Client---</option>
+          {this.props.clients.map((client, i) => {
+            return (
+              <option key={i} value={client.id}>{client.first_name} {client.last_name}</option>
+            );
+          })}
+        </NativeSelect>
+        </div>
+        
+        {this.props.currentClient.map((currentClient, i) => {
+            return(
+              <ClientCard key={i} clientToView={currentClient}/>
+            );
+          })}
+      
       </div>
     );
   }
@@ -33,6 +53,8 @@ class UserPage extends Component {
 
 const mapStateToProps = state => ({
   user: state.user,
+  clients: state.clients.clients,
+  currentClient: state.clients.currentClient
 });
 
 export default connect(mapStateToProps)(UserPage);

@@ -7,11 +7,17 @@ body {
     background-color: #ff4545;
     margin: 50px;
 }
-.flex-container-home{
+.flex-container{
     display: flex; 
-    flex-direction: row; 
-    justify-content: left;
-    margin-top: 10vh;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center; 
+    padding: 5px; 
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+.float-right{
+    float: right; 
 }
 form {
     background-color: #dbd5d5;

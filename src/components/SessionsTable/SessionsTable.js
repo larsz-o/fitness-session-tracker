@@ -28,16 +28,6 @@ class SessionsTable extends Component {
                             return (
                                 <TableRow key={i}>
                                     <TableCell>{session.first_name} {session.last_name}</TableCell>
-                                    <TableCell>{session.date}</TableCell>
-                                    <TableCell>{session.date}</TableCell>
-                                    <TableCell>{session.date}</TableCell>
-                                    <TableCell>{session.date}</TableCell>
-                                    <TableCell>{session.date}</TableCell>
-                                    <TableCell>{session.date}</TableCell>
-                                    <TableCell>{session.date}</TableCell>
-                                    <TableCell>{session.date}</TableCell>
-                                    <TableCell>{session.date}</TableCell>
-                                    <TableCell>{session.date}</TableCell>
                                     <TableCell><Button>Email</Button></TableCell>
                                 </TableRow>
                             );
