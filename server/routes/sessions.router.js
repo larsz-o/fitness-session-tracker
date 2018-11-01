@@ -7,7 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
     if(req.isAuthenticated()){
-        const query = `SELECT * FROM "sessions" JOIN "clients" ON "sessions"."client_id" = "clients"."id";`; 
+        const query = `SELECT * FROM "sessions" JOIN "clients" ON "sessions"."client_id" = "clients"."id" ORDER BY "date" DESC;`; 
         pool.query(query).then((results) => {
             res.send(results.rows); 
         }).catch((error) => {

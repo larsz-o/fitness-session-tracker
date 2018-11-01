@@ -14,7 +14,7 @@ class ClientCard extends Component {
                     <LogSessions client={this.props.clientToView} />
                     {sessions.map((session, i) => {
                         return (
-                            <div key={i}>{moment(session.date).format('MM/DD/YY')}</div>
+                            <div key={i}>{moment(session.date).format('MM/DD/YYYY')}</div>
                         );
                     })}
                 </div>

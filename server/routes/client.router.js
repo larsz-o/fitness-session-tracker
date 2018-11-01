@@ -7,7 +7,7 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
     if (req.isAuthenticated()) {
-        const query = `SELECT * FROM "clients";`;
+        const query = `SELECT * FROM "clients" ORDER BY "last_name" DESC;`;
         pool.query(query).then((results) => {
             res.send(results.rows);
         }).catch((error) => {

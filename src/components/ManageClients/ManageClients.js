@@ -33,21 +33,36 @@ class ManageClients extends Component {
         <h2>
           Manage Clients
       </h2>
-        <NativeSelect value={this.state.view} onChange={(event) => this.handleChangeFor(event, 'view')}>
-          <option value="">---Select One---</option>
-          <option value="add">Add Client</option>
-          <option value="edit">View/Edit Clients</option>
-        </NativeSelect>
-        {this.state.view === 'add' && <form>
-          <FormControl>
-            <TextField type="text" label="First Name" onChange={(event) => this.handleChangeFor(event, 'first_name')} />
-            <TextField type="text" label="Last Name" onChange={(event) => this.handleChangeFor(event, 'last_name')} />
-            <TextField type="text" label="Phone Number" onChange={(event) => this.handleChangeFor(event, 'phone_number')} />
-            <TextField type="text" label="Email Address" onChange={(event) => this.handleChangeFor(event, 'email_address')} />
-            <Button color="secondary" onClick={this.addClient}>Add</Button>
-            <Button onClick={this.changeView}>Cancel</Button>
-          </FormControl>
-        </form>}
+        <div className="flex-container">
+          <NativeSelect value={this.state.view} onChange={(event) => this.handleChangeFor(event, 'view')}>
+            <option value="">---Select One---</option>
+            <option value="add">Add Client</option>
+            <option value="edit">View/Edit Clients</option>
+          </NativeSelect>
+        </div>
+        <div className="flex-container">
+          {this.state.view === 'add' &&
+            <div>
+              <FormControl>
+                <TextField autoComplete="off" type="text" variant="outlined" label="First Name" onChange={(event) => this.handleChangeFor(event, 'first_name')} />
+              </FormControl><br/>
+              <FormControl>
+                <TextField autoComplete="off" type="text" variant="outlined" label="Last Name" onChange={(event) => this.handleChangeFor(event, 'last_name')} />
+              </FormControl><br/>
+              <FormControl>
+                <TextField autoComplete="off" type="text" variant="outlined" label="Phone Number" onChange={(event) => this.handleChangeFor(event, 'phone_number')} />
+              </FormControl><br/>
+              <FormControl>
+                <TextField autoComplete="off" type="text" variant="outlined" label="Email Address" onChange={(event) => this.handleChangeFor(event, 'email_address')} />
+              </FormControl><br/>
+              <FormControl>
+                <Button onClick={this.changeView}>Cancel</Button>
+              </FormControl>
+              <FormControl>
+                <Button color="secondary" variant="contained" size="large" onClick={this.addClient}>Add</Button>
+              </FormControl>
+            </div>}
+        </div>
       </div>
     );
   }
