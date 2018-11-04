@@ -29,6 +29,7 @@ class ClientCard extends Component {
                         {sessions.length >= (this.props.clientToView.sessions - 3) && <Email clientToView={this.props.clientToView} session={sessions}/>}
                         {sessions.length < this.props.clientToView.sessions && <LogSessions client={this.props.clientToView} />}
                     </div>
+                    <p>Prepaid for {this.props.clientToView.sessions} sessions</p>
                     <div className="flex-box">
                         {sessions.map((session, i) => {
                             return (

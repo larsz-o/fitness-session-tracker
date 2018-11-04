@@ -10,13 +10,9 @@ class Email extends Component {
             open: false, 
             subject: 'Personal Training Session Renewal Reminder', 
             message: `Hi ${this.props.clientToView.first_name}! 
-        I hope you have enjoyed our personal training sessions. I'm writing to let you know that you just finished ${this.props.session.length} of your ${this.props.clientToView.sessions} prepaid sessions. Nice work! 
-        If you'd like to sign up for more, you can do so by calling me at (508) 366-8700 or by dropping by the studio. 
-        Thanks for being a great client! 
-
-From, 
-Sue Mackenzie
-Fitness Meets Wellness`
+            I hope you have enjoyed our personal training sessions. I'm writing to let you know that you just finished ${this.props.session.length} of your ${this.props.clientToView.sessions} prepaid sessions. Nice work! 
+            If you'd like to sign up for more, you can do so by calling me at (508) 366-8700 or by dropping by the studio. 
+            Thanks for being a great client! From, Sue Mackenzie Fitness Meets Wellness`
         }
     }
     emailReminder = () => {
@@ -25,8 +21,8 @@ Fitness Meets Wellness`
         })
         axios({
             method: 'POST', 
-            url: '/api/email',
-            data: {subject: this.state.subject, message: this.state.message, recipient: this.props.clientToView.email_address}
+            url: '/api/clients/email',
+            data: {recipient: this.props.clientToView.email_address, name: this.props.clientToView.first_name, sessionsCompleted: this.props.session.length, sessionsTotal: this.props.clientToView.sessions }
         }).then((response) => {
             alert(`Reminder sent to ${this.props.clientToView.first_name} ${this.props.clientToView.last_name}!`)
         }).catch((error) => {
@@ -38,11 +34,6 @@ Fitness Meets Wellness`
             open: false
         })
     }
-    handleChangeFor = (event, property) => {
-        this.setState({
-            [property]: event.target.value
-        })
-    }
     handleOpen = () => {
         this.setState({
             open: true
@@ -51,13 +42,14 @@ Fitness Meets Wellness`
     render(){
         return(
             <div>
+                {/* make message read-only and just input the name and email on the server  */}
                 <IconButton variant="contained" color="secondary" onClick={this.handleOpen}><MailOutline/>Email</IconButton>
                        <Dialog open={this.state.open} onClose={this.handleClose} fullWidth={true}>
                        <DialogTitle>Send Reminder </DialogTitle>
                        <DialogContent>
                            <DialogContentText>To: {this.props.clientToView.first_name} {this.props.clientToView.last_name}</DialogContentText>
-                           <DialogContentText>Subject: <TextField value={this.state.subject} onChange={(event)=>this.handleChangeFor(event, 'subject')} fullWidth={true}/></DialogContentText>
-                           <DialogContentText>Message: <TextField value={this.state.message} onChange={(event)=>this.handleChangeFor(event, 'message')} fullWidth={true} multiline={true}/></DialogContentText>
+                           <DialogContentText>Subject: <TextField value={this.state.subject} disabled={true} fullWidth={true}/></DialogContentText>
+                           <DialogContentText>Message: <TextField value={this.state.message} disabled={true} fullWidth={true} multiline={true}/></DialogContentText>
                            <DialogActions>
                                 <Button onClick={this.handleClose}>Cancel</Button>
                                <Button onClick={this.emailReminder} variant="contained" color="primary">Send</Button>
