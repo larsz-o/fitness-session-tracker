@@ -46,7 +46,7 @@ class LogSessionForm extends Component {
     render() {
         return (
             <div className="sticky-right">
-                <IconButton onClick={this.handleOpen} color="primary" variant="contained"><AddBox/>Log Session</IconButton>
+                <IconButton onClick={this.handleOpen} color="primary" variant="contained"><AddBox/></IconButton>
                 <Dialog open={this.state.open} onClose={this.handleClose}>
                     <DialogTitle>Log Session</DialogTitle>
                     <DialogContent>

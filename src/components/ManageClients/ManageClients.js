@@ -1,27 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { NativeSelect, TextField, Button, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
+import { TextField, Button, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 import ManageRow from './ManageRow'; 
 
 class ManageClients extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      view: '',
+      view: 'edit',
       // the value of 'view' will determine what the user sees, based on what they select in the menu 
       first_name: '',
       last_name: '',
       phone_number: '',
       email_address: '', 
-      sessions: ''
+      sessions: '', 
     }
   }
   addClient = () => {
     this.props.dispatch({ type: 'ADD_CLIENT', payload: this.state })
   }
-  changeView = () => {
+  setView = (view) => {
     this.setState({
-      view: ''
+      view: view
     })
   }
   handleChangeFor = (event, property) => {
@@ -32,16 +32,14 @@ class ManageClients extends Component {
   render() {
     return (
       <div>
-        <div className="flex-container">
+        <div className="flex-container-header">
             <h2>Manage Clients</h2>
         </div>
-        <div className="flex-container">
-          <NativeSelect value={this.state.view} onChange={(event) => this.handleChangeFor(event, 'view')}>
-            <option value="">---Select One---</option>
-            <option value="add">Add Client</option>
-            <option value="edit">View/Edit Clients</option>
-          </NativeSelect>
-        </div>
+        {this.state.view !== 'add' && 
+          <div className="center">
+            <Button variant="contained" color="primary" onClick={()=>this.setView('add')}>Add Client</Button>
+        </div>}
+       
         <div className="flex-container">
           {this.state.view === 'add' &&
             <div className="add-form">
@@ -51,7 +49,7 @@ class ManageClients extends Component {
                 <TextField autoComplete="off" type="text" variant="outlined" label="Email Address" value={this.state.email_address} onChange={(event) => this.handleChangeFor(event, 'email_address')} />
                 <TextField autoComplete="off" type="number" variant="outlined" label="Sessions Purchased" value={this.state.sessions} onChange={(event) =>this.handleChangeFor(event, 'sessions')}/>
                 <Button color="primary" variant="contained" size="large" onClick={this.addClient}>Add</Button>
-                <Button onClick={this.changeView}>Cancel</Button>
+                <Button onClick={()=>this.setView('edit')}>Cancel</Button>
             </div>}
         {this.state.view === 'edit' && 
           <div>

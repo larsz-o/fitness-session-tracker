@@ -53,7 +53,7 @@ Sue Mackenzie
 Fitness Meets Wellness`;
         return(
             <div>
-                <IconButton variant="contained" color="secondary" onClick={this.handleOpen}><MailOutline/>Email</IconButton>
+                <IconButton variant="contained" color="secondary" onClick={this.handleOpen}><MailOutline/></IconButton>
                        <Dialog open={this.state.open} onClose={this.handleClose} fullWidth={true}>
                        <DialogTitle>Send Reminder </DialogTitle>
                        <DialogContent>

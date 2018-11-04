@@ -26,8 +26,11 @@ class ClientCard extends Component {
                 <div className="card">
                     <div className="flex-box-header">
                         <h3>{this.props.currentClient.first_name} {this.props.currentClient.last_name}</h3>
+                    
+                    <div className="flex-box-right">
                         {sessions.length >= (this.props.currentClient.sessions - 3) && <Email session={sessions}/>}
                         {sessions.length < this.props.currentClient.sessions && <LogSessions client={this.props.currentClient} />}
+                    </div>
                     </div>
                     <p>Prepaid for {this.props.currentClient.sessions} sessions</p>
                     <div className="flex-box">

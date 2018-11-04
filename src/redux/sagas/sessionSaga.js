@@ -5,7 +5,7 @@ import moment from 'moment';
 function* clearCard(action) {
     try {
         yield axios.delete(`/api/sessions/clear?id=${action.payload}`);
-        yield put ({type: 'FETCH_SESSIONS'}); 
+        yield put ({type: 'FETCH_CLIENTS'}); 
     } catch (error){
         console.log('Error deleting card', error); 
     }

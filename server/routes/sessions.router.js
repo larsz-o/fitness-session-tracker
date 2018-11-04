@@ -36,22 +36,39 @@ router.post('/', (req, res) => {
         res.sendStatus(403); 
     }
 });
-router.delete('/', (req, res) => {
+//deletes all recorded sessions and sets a client's prepaid sessions back down to 0 
+router.delete('/clear', (req, res) => {
     if(req.isAuthenticated()){
-        let id = req.query.id; 
-        const query = `DELETE FROM "sessions" WHERE "id" = $1;`;
-        pool.query(query, [id]).then((results) => {
-            res.sendStatus(200);
-        }).catch((error) => {
-            console.log('Error deleting session', error); 
-        })
+        (async () => {
+            const client = await pool.connect();
+            try {
+                await client.query('BEGIN');
+                console.log(req.query.id);
+                let query = `DELETE FROM "sessions" WHERE "client_id" = $1;`;
+                await client.query(query, [req.query.id]); 
+                query = `UPDATE "clients" SET "sessions" = 0 WHERE "id" = $1;`; 
+                console.log(req.query.id);
+                await client.query(query, [req.query.id]);
+                await client.query('COMMIT');
+                    res.sendStatus(200);
+            } catch (error){
+                console.log('ROLLBACK', error); 
+                await client.query('ROLLBACK');
+                throw error;
+            } finally {
+                client.release;
+            }
+        })().catch((error) => {
+            console.log('CATCH', error); 
+            res.sendStatus(500); 
+        });
     } else {
         res.sendStatus(403); 
     }
 })
-router.delete('/clear', (req, res) => {
+router.delete('/', (req, res) => {
     if(req.isAuthenticated()){
-        const query = `DELETE FROM "sessions" WHERE "client_id" = $1;`;
+        const query = `DELETE FROM "sessions" WHERE "id" = $1;`;
         pool.query(query, [req.query.id]).then((results) => {
             res.sendStatus(200);
         }).catch((error) => {

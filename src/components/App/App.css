@@ -14,6 +14,9 @@ body {
 .bottom {
     margin-bottom: 1%;
 }
+.center{
+    text-align: center; 
+ }
 .date{
     padding: 1vh; 
 }
@@ -26,18 +29,29 @@ body {
     margin-top: 5vh;
     margin-bottom: 5vh;
 }
+.flex-container-header{
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; 
+}
 .flex-box {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap; 
     justify-content: space-evenly;
-   
 }
 .flex-box-header{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap; 
     justify-content: space-between; 
+}
+.flex-box-right{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; 
+    justify-content: right; 
 }
 form {
     background-color: #dbd5d5;
