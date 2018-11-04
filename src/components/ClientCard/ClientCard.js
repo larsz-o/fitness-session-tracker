@@ -11,7 +11,7 @@ import { Delete } from '@material-ui/icons';
 class ClientCard extends Component {
     clearCard = () => {
         if(window.confirm('Are you sure to you want to clear this card? This action cannot be undone. All records will be deleted.')){
-            this.props.dispatch({type: 'CLEAR_CARD', payload: this.props.clientToView.id})
+            this.props.dispatch({type: 'CLEAR_CARD', payload: this.props.currentClient.id})
         }
     }
     handleDelete = (session) => {
@@ -20,16 +20,16 @@ class ClientCard extends Component {
         }
     }
     render() {
-        let sessions = this.props.sessions.filter(session => session.client_id === this.props.clientToView.id);
+        let sessions = this.props.sessions.filter(session => session.client_id === this.props.currentClient.id);
         return (
             <div className="flex-container">
                 <div className="card">
                     <div className="flex-box-header">
-                        <h3>{this.props.clientToView.first_name} {this.props.clientToView.last_name}</h3>
-                        {sessions.length >= (this.props.clientToView.sessions - 3) && <Email clientToView={this.props.clientToView} session={sessions}/>}
-                        {sessions.length < this.props.clientToView.sessions && <LogSessions client={this.props.clientToView} />}
+                        <h3>{this.props.currentClient.first_name} {this.props.currentClient.last_name}</h3>
+                        {sessions.length >= (this.props.currentClient.sessions - 3) && <Email session={sessions}/>}
+                        {sessions.length < this.props.currentClient.sessions && <LogSessions client={this.props.currentClient} />}
                     </div>
-                    <p>Prepaid for {this.props.clientToView.sessions} sessions</p>
+                    <p>Prepaid for {this.props.currentClient.sessions} sessions</p>
                     <div className="flex-box">
                         {sessions.map((session, i) => {
                             return (
@@ -46,6 +46,7 @@ class ClientCard extends Component {
     }
 }
 const mapStateToProps = state => ({
-    sessions: state.sessions.sessions
+    sessions: state.sessions.sessions, 
+    currentClient: state.clients.currentClient[0]
 });
 export default connect(mapStateToProps)(ClientCard); 

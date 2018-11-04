@@ -39,13 +39,7 @@ class UserPage extends Component {
           })}
         </NativeSelect>
         </div>
-        
-        {this.props.currentClient.map((currentClient, i) => {
-            return(
-              <ClientCard key={i} clientToView={currentClient}/>
-            );
-          })}
-      
+        {this.props.currentClient.length > 0 && <ClientCard />}
       </div>
     );
   }

@@ -3,7 +3,10 @@ body {
     margin: 0px;
 }
 .add-form{
-
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column; 
+    justify-content: space-evenly;
 }
 .alert {
     margin: 50px;
@@ -44,7 +47,10 @@ form {
     padding: 25px;
     border-radius: 2px;
 }
-
+.form-input {
+    padding: 5px; 
+    margin: 10px; 
+}
 input {
     margin: 5px;
     margin-bottom: 10px;
