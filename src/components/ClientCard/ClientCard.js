@@ -37,12 +37,12 @@ class ClientCard extends Component {
                         {sessions.map((session, i) => {
                             return (
                                 <div className="date" key={i}>
-                                    <p>{i + 1}. {moment(session.date).format('MM/DD/YYYY')} <IconButton><Delete onClick={()=>this.handleDelete(session)}/></IconButton></p>
+                                    <p>{i + 1}. {moment(session.date).format('MM/DD/YYYY')} <IconButton color="error"><Delete onClick={()=>this.handleDelete(session)}/></IconButton></p>
                                 </div>
                             );
                         })}
                     </div>
-                    {sessions.length > 0 && <div className="bottom"><Button onClick={this.clearCard}>Clear Card</Button></div>}
+                    {sessions.length > 0 && <div className="bottom"><Button variant="contained" color="error" onClick={this.clearCard}>Clear Card</Button></div>}
                 </div>
             </div>
         );

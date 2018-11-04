@@ -17,7 +17,10 @@ class ManageClients extends Component {
     }
   }
   addClient = () => {
-    this.props.dispatch({ type: 'ADD_CLIENT', payload: this.state })
+    this.props.dispatch({ type: 'ADD_CLIENT', payload: this.state });
+    this.setState({
+      view: 'edit', 
+    })
   }
   setView = (view) => {
     this.setState({
@@ -26,6 +29,7 @@ class ManageClients extends Component {
   }
   handleChangeFor = (event, property) => {
     this.setState({
+      ...this.state, 
       [property]: event.target.value
     })
   }

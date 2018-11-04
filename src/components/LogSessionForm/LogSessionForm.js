@@ -55,7 +55,7 @@ class LogSessionForm extends Component {
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.handleClose}>Cancel</Button>
-                        <Button onClick={this.logSession}>Submit</Button>
+                        <Button color="primary" variant="contained" onClick={this.logSession}>Submit</Button>
                     </DialogActions>
                 </Dialog>
             </div>
