@@ -7,7 +7,6 @@ class ManageRow extends Component {
     render(){
         return(
             <TableRow>
-                {JSON.stringify(this.props.client)}
             <TableCell>{this.props.client.first_name}</TableCell>
             <TableCell>{this.props.client.last_name}</TableCell>
             <TableCell>{this.props.client.phone_number}</TableCell>

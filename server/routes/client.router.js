@@ -38,7 +38,7 @@ router.post('/', (req, res) => {
     }
 });
 router.post('/email', (req, res) => {
-    if(req.isAuthenticated){
+    if(req.isAuthenticated()){
      console.log(req.body);
      let mail = {
         from: `Fitness Meets Wellness <${process.env.my_gmail_username}>`,
@@ -71,5 +71,22 @@ router.post('/email', (req, res) => {
         res.sendStatus(403); 
     }
 })
-
+/**
+ * PUT routes 
+ */
+router.put('/', (req, res) => {
+    if(req.isAuthenticated()){
+        const client = req.body;
+        console.log(client); 
+        const query = `UPDATE "clients" SET "first_name" = $1, "last_name" = $2, "phone_number" = $3, "email_address" = $4, "sessions" = $5 WHERE "id" = $6;`; 
+        pool.query(query, [client.first_name, client.last_name, client.phone_number, client.email_address, client.sessions, client.id]).then((results) => {
+            res.sendStatus(200);
+        }).catch((error) => {
+            console.log('Error updating client', error);
+            res.sendStatus(500); 
+        })
+    } else {
+        res.sendStatus(403); 
+    }
+})
 module.exports = router;

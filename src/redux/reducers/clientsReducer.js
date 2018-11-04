@@ -6,7 +6,6 @@ const clients = (state = [], action) => {
     } 
     return state
 }
-
 const currentClient = (state = [], action) => {
     if (action.type === 'SET_CURRENT_CLIENT'){
         return action.payload;
