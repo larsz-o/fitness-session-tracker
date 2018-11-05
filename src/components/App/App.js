@@ -5,18 +5,15 @@ import {
   Redirect,
   Switch,
 } from 'react-router-dom';
-
 import {connect} from 'react-redux';
 
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
-
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import ManageClients from '../ManageClients/ManageClients';
-
+import ResetPassword from '../ResetPassword/ResetPassword';
 import './App.css';
 
 class App extends Component {
@@ -55,8 +52,13 @@ class App extends Component {
               path="/clients"
               component={ManageClients}
             />
+             <ProtectedRoute
+              exact
+              path="/resetpassword/:token"
+              component={ResetPassword}
+            />
             {/* If none of the other routes matched, we will show a 404. */}
-            <Route render={() => <h1>404</h1>} />
+            <Route render={() => <h1>404: Page Not Found</h1>} />
           </Switch>
           <Footer />
         </div>

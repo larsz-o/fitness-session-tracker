@@ -66,6 +66,7 @@ class ManageClients extends Component {
                   <TableCell>Email</TableCell>
                   <TableCell>Prepaid Sessions</TableCell>
                   <TableCell>Edit</TableCell>
+                  <TableCell>Delete</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>

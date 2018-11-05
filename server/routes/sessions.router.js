@@ -78,4 +78,36 @@ router.delete('/', (req, res) => {
         res.sendStatus(403); 
     }
 })
+// removes all of a client's sessions and then deletes the client. 
+router.delete('/remove', (req, res) => {
+    if(req.isAuthenticated()){
+        ( async() => {
+            const client = await pool.connect();
+            try {
+                await client.query('BEGIN');
+                const fitnessClient = req.query.id; 
+                console.log(fitnessClient);
+                let query = `DELETE FROM "sessions" WHERE "client_id" = $1;`;
+                let values = [fitnessClient]; 
+                await client.query(query, values); 
+                query = `DELETE FROM "clients" WHERE "id" = $1;`; 
+                await client.query(query, values); 
+                await client.query('COMMIT');
+                    res.sendStatus(200); 
+            } catch (error) {
+                console.log('ROLLBACK', error);
+                await client.query('ROLLBACK');
+                throw error;
+            } finally {
+                client.release; 
+            }
+
+        })().catch((error) => {
+            console.log('CATCH', error);
+            res.sendStatus(500); 
+        });
+    } else {
+        res.sendStatus(403); 
+    }
+})
 module.exports = router;

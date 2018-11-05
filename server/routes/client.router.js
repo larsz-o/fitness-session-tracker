@@ -26,8 +26,8 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     if (req.isAuthenticated()) {
         const client = req.body;
-        const query = `INSERT INTO "clients" ("first_name", "last_name", "phone_number", "email_address") VALUES ($1, $2, $3, $4);`;
-        pool.query(query, [client.first_name, client.last_name, client.phone_number, client.email_address]).then((results) => {
+        const query = `INSERT INTO "clients" ("first_name", "last_name", "phone_number", "email_address", "sessions") VALUES ($1, $2, $3, $4, $5);`;
+        pool.query(query, [client.first_name, client.last_name, client.phone_number, client.email_address, client.sessions]).then((results) => {
             res.sendStatus(201);
         }).catch((error) => {
             console.log('Error posting client', error); 

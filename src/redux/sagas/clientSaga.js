@@ -12,6 +12,16 @@ function* addClient(action) {
         alert('Error adding client'); 
     }
 }
+function* deleteClient(action) {
+    try {
+        // deletes all of a client's sessions then deletes the client 
+        axios.delete(`/api/sessions/remove?id=${action.payload}`); 
+        yield put ({type: 'FETCH_CLIENTS'});
+    } catch (error) {
+        console.log('Error deleting client', error); 
+        alert('Error deleting client. Please try again.'); 
+    }
+}
 function* editClient(action) {
     try {
         //edits a client's records
@@ -33,11 +43,11 @@ function* fetchClients() {
         console.log('Error fetching clients', error);
     }
 }
-
 function* clientSaga() {
     yield takeLatest('FETCH_CLIENTS', fetchClients);
     yield takeLatest('ADD_CLIENT', addClient);
     yield takeLatest('EDIT_CLIENT', editClient); 
+    yield takeLatest('DELETE_CLIENT', deleteClient); 
 }
 
 export default clientSaga;

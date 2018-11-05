@@ -37,20 +37,13 @@ class Email extends Component {
         })
     }
     render(){
+        let sessionsLeft = this.props.client.sessions - this.props.session.length;
         let message= 
 `Hi ${this.props.client.first_name}!
-I hope you have enjoyed our personal training sessions. I'm writing to let you know that you just finished ${this.props.session.length} of your ${this.props.client.sessions} prepaid sessions. 
-                    
-Nice work! 
-        
-If you'd like to sign up for more, you can do so by calling me at (508) 366-8700 or by dropping by the studio.
-        
-Thanks for being a great client! 
-        
-From, 
-        
-Sue Mackenzie 
-Fitness Meets Wellness`;
+Just a reminder that your prepaid sessions are almost complete. You have ${sessionsLeft} more sessions until your card is full. 
+You can renew your sessions in the studio  at your convenience. Thank you for your continued support and great efforts on your fitness goals! See you soon!
+Be well!   
+Sue Mackenzie`;
         return(
             <div>
                 <IconButton variant="contained" color="secondary" onClick={this.handleOpen}><MailOutline/></IconButton>
