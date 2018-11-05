@@ -14,6 +14,7 @@ import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import ManageClients from '../ManageClients/ManageClients';
 import ResetPassword from '../ResetPassword/ResetPassword';
+import NewPassword from '../ResetPassword/NewPassword'; 
 import './App.css';
 
 class App extends Component {
@@ -54,8 +55,13 @@ class App extends Component {
             />
              <ProtectedRoute
               exact
-              path="/resetpassword/:token"
+              path="/resetpassword/"
               component={ResetPassword}
+            />
+             <ProtectedRoute
+              exact
+              path="/resetpassword/:token"
+              component={NewPassword}
             />
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404: Page Not Found</h1>} />

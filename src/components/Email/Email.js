@@ -9,7 +9,7 @@ class Email extends Component {
         super(props);
         this.state = {
             open: false, 
-            subject: 'Personal Training Session Renewal Reminder', 
+            subject: 'Fitness Meets Wellness Session Renewal Reminder', 
         }
     }
     emailReminder = () => {

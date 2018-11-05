@@ -1,12 +1,14 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0px;
+    background-color: beige; 
 }
 .add-form{
     display: flex;
     flex-wrap: wrap;
     flex-direction: column; 
     justify-content: space-evenly;
+    background-color: white; 
 }
 .alert {
     margin: 50px;
@@ -20,14 +22,16 @@ body {
 .date{
     padding: 1vh; 
 }
+#email-input {
+    margin-left: 10vw;
+    margin-right: 10vw; 
+}
 .flex-container{
     display: flex; 
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center; 
-    padding: 5px; 
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    margin-bottom: 2vh;
 }
 .flex-container-header{
     display: flex; 
@@ -94,4 +98,15 @@ input {
     outline:0;
     border-bottom:1px solid #444; 
     cursor: pointer;
+}
+.manage-table {
+    background-color: white; 
+    margin-top: 5vh; 
+    font-weight: 200; 
+}
+.reset-form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh; 
+    margin-bottom: 2vh; 
 }

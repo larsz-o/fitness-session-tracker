@@ -57,7 +57,7 @@ class ManageClients extends Component {
             </div>}
         {this.state.view === 'edit' && 
           <div>
-            <Table>
+            <Table className="manage-table">
               <TableHead>
                 <TableRow>
                   <TableCell>First Name</TableCell>

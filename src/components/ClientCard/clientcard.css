@@ -4,6 +4,7 @@
     transition: 0.3s;
     width: 50vw; 
     padding: 2.5vw;
+    background-color: white; 
 
 }
 /* On mouse-over, add a deeper shadow */

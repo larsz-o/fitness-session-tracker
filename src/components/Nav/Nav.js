@@ -7,7 +7,7 @@ import './Nav.css';
 const Nav = (props) => (
   <div className="nav">
     <Link to="/home">
-      <h2 className="nav-title">Fitness Session Tracker</h2>
+      <h2 className="nav-title">Fitness Meets Wellness Session Tracker</h2>
     </Link>
     <div className="nav-right">
       <Link className="nav-link" to="/home">
