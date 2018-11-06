@@ -45,13 +45,14 @@ router.post('/email', (req, res) => {
         to: `${req.body.recipient}`,
         subject: 'Personal Training Session Renewal Reminder',
         text: `Hi ${req.body.name}! 
-        I hope you have enjoyed our personal training sessions. I'm writing to let you know that you just finished your prepaid fitness sessions. Nice work! 
-        If you'd like to sign up for more, you can do so by calling me at (508) 366-8700 or by dropping by the studio. 
-        Thanks for being a great client! From, Sue Mackenzie Fitness Meets Wellness`,
+        Just a reminder that your prepaid sessions are almost complete. You have ${req.body.sessionsLeft} more sessions until your card is full. 
+        You can renew your sessions in the studio  at your convenience. Thank you for your continued support and great efforts on your fitness goals! See you soon!
+        Be well!   
+        Sue Mackenzie`,
         html: `<p>Hi ${req.body.name}! </p>
-        <p>I hope you have enjoyed our personal training sessions. I'm writing to let you know that you just finished ${req.body.sessionsCompleted} of your ${req.body.sessionsTotal} prepaid fitness sessions. Nice work!</p> 
-        <p>If you'd like to sign up for more, you can do so by calling me at (508) 366-8700 or by dropping by the studio.</p>
-        <p>Thanks for being a great client!</p><p> From,<br/> Sue Mackenzie<br/> Fitness Meets Wellness</p>`
+        <p>Just a reminder that your prepaid sessions are almost complete. You have ${req.body.sessionsLeft} more sessions until your card is full.</p> 
+        <p> You can renew your sessions in the studio  at your convenience. Thank you for your continued support and great efforts on your fitness goals! See you soon!</p>
+        <p>Be well!</p><p>Sue Mackenzie</p>`
      }
      transporter.sendMail(mail, function(error, info) {
          if (error) {

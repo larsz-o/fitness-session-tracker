@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button } from '@material-ui/core'; 
+import { Button, TextField } from '@material-ui/core'; 
 
 class LoginPage extends Component {
   state = {
@@ -29,10 +29,13 @@ class LoginPage extends Component {
       [propertyName]: event.target.value,
     });
   }
-
+  resetPassword = () => {
+    console.log('in reset password');
+    this.props.history.push('/resetpassword'); 
+  }
   render() {
     return (
-      <div>
+      <div className="login-form">
         {this.props.errors.loginMessage && (
           <h2
             className="alert"
@@ -41,12 +44,11 @@ class LoginPage extends Component {
             {this.props.errors.loginMessage}
           </h2>
         )}
-        <form onSubmit={this.login}>
           <h1>Login</h1>
           <div>
             <label htmlFor="username">
               Username:
-              <input
+              <TextField
                 type="text"
                 name="username"
                 autoComplete="off"
@@ -58,7 +60,7 @@ class LoginPage extends Component {
           <div>
             <label htmlFor="password">
               Password:
-              <input
+              <TextField
                 type="password"
                 name="password"
                 autoComplete="off"
@@ -67,15 +69,10 @@ class LoginPage extends Component {
               />
             </label>
           </div>
-          <div>
-            <input
-              className="log-in"
-              type="submit"
-              name="submit"
-              value="Log In"
-            />
+          <div className="button-margin">
+            <Button variant="contained" color="primary" onClick={this.login}>Login</Button><br/><br/>
+            <Button onClick={this.resetPassword}>Forgot Password?</Button>
           </div>
-        </form>
         <center>
           <button
             type="button"
@@ -84,7 +81,7 @@ class LoginPage extends Component {
           >
             Register
           </button>
-          <Button onClick={()=>this.props.history.push('/reset')}>Forgot Password</Button>
+         
         </center>
       </div>
     );

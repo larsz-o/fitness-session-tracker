@@ -1,13 +1,12 @@
 footer {
     position: sticky;
     margin-top: 95vh; 
-    background-color: goldenrod;
     height: 10vh; 
     width: 100%;
 }
 .center-footer{
-    justify-content: center;
     margin-top: 10vh; 
+    margin-left: 5vw;
     display: flex;
     flex-direction: row; 
 }

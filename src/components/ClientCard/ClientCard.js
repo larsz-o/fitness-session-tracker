@@ -10,7 +10,7 @@ import { Delete } from '@material-ui/icons';
 
 class ClientCard extends Component {
     clearCard = () => {
-        if(window.confirm('Are you sure to you want to clear this card? This action cannot be undone. All records will be deleted.')){
+        if(window.confirm('Are you sure to you want to clear this card? All records will be deleted and prepaid sessions will be reset to 0.')){
             this.props.dispatch({type: 'CLEAR_CARD', payload: this.props.currentClient.id})
         }
     }
@@ -26,7 +26,6 @@ class ClientCard extends Component {
                 <div className="card">
                     <div className="flex-box-header">
                         <h3>{this.props.currentClient.first_name} {this.props.currentClient.last_name}</h3>
-                    
                     <div className="flex-box-right">
                         {sessions.length >= (this.props.currentClient.sessions - 3) && <Email session={sessions}/>}
                         {sessions.length < this.props.currentClient.sessions && <LogSessions client={this.props.currentClient} />}
@@ -37,12 +36,12 @@ class ClientCard extends Component {
                         {sessions.map((session, i) => {
                             return (
                                 <div className="date" key={i}>
-                                    <p>{i + 1}. {moment(session.date).format('MM/DD/YYYY')} <IconButton color="error"><Delete onClick={()=>this.handleDelete(session)}/></IconButton></p>
+                                    <p>{i + 1}. {moment(session.date).format('MM/DD/YYYY')} <IconButton><Delete onClick={()=>this.handleDelete(session)}/></IconButton></p>
                                 </div>
                             );
                         })}
                     </div>
-                    {sessions.length > 0 && <div className="bottom"><Button variant="contained" color="error" onClick={this.clearCard}>Clear Card</Button></div>}
+                    {sessions.length > 0 && <div className="bottom"><Button variant="contained" onClick={this.clearCard}>Clear Card</Button></div>}
                 </div>
             </div>
         );

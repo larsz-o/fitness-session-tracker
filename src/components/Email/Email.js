@@ -19,7 +19,7 @@ class Email extends Component {
         axios({
             method: 'POST', 
             url: '/api/clients/email',
-            data: {recipient: this.props.client.email_address, name: this.props.client.first_name, sessionsCompleted: this.props.session.length, sessionsTotal: this.props.client.sessions }
+            data: {recipient: this.props.client.email_address, name: this.props.client.first_name, sessionsLeft: sessionsLeft }
         }).then((response) => {
             alert(`Reminder sent to ${this.props.client.first_name} ${this.props.client.last_name}!`)
         }).catch((error) => {

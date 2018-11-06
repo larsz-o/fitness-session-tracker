@@ -6,7 +6,7 @@ function* addClient(action) {
         // post a new client 
         yield axios.post('/api/clients', action.payload);
         yield put ({ type: 'FETCH_CLIENTS'}); 
-        alert('Success!');
+        alert('Client added!');
     } catch (error) {
         console.log('Error adding clients', error); 
         alert('Error adding client'); 
@@ -16,6 +16,7 @@ function* deleteClient(action) {
     try {
         // deletes all of a client's sessions then deletes the client 
         axios.delete(`/api/sessions/remove?id=${action.payload}`); 
+        alert('Sucess!'); 
         yield put ({type: 'FETCH_CLIENTS'});
     } catch (error) {
         console.log('Error deleting client', error); 
@@ -28,7 +29,7 @@ function* editClient(action) {
         console.log(action.payload);
         yield axios.put('/api/clients', action.payload);
         yield put ({type: 'FETCH_CLIENTS'});
-        alert('Success!'); 
+        alert('Client edited!'); 
     } catch (error) {
         console.log('Error editing client', error); 
         alert('Error editing client. Please try again.');

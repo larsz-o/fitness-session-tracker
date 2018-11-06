@@ -5,7 +5,9 @@ import moment from 'moment';
 function* clearCard(action) {
     try {
         yield axios.delete(`/api/sessions/clear?id=${action.payload}`);
+        alert('Card cleared!');
         yield put ({type: 'FETCH_CLIENTS'}); 
+        yield put ({type: 'FETCH_SESSIONS'});
     } catch (error){
         console.log('Error deleting card', error); 
     }
@@ -14,7 +16,7 @@ function* deleteSession(action) {
     try {
         yield axios.delete(`/api/sessions?id=${action.payload.session_id}`);
         alert(`Session on ${moment(action.payload.date).format('MM/DD/YYYY')} deleted.`); 
-        yield put ({type: 'FETCH_SESSIONS'})
+        yield put ({type: 'FETCH_SESSIONS'});
     } catch (error) {
         console.log('Error deleting session', error); 
     }
