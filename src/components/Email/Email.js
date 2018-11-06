@@ -19,7 +19,7 @@ class Email extends Component {
         axios({
             method: 'POST', 
             url: '/api/clients/email',
-            data: {recipient: this.props.client.email_address, name: this.props.client.first_name, sessionsLeft: sessionsLeft }
+            data: {recipient: this.props.client.email_address, name: this.props.client.first_name, sessionsLeft: (this.props.client.sessions - this.props.session.length) }
         }).then((response) => {
             alert(`Reminder sent to ${this.props.client.first_name} ${this.props.client.last_name}!`)
         }).catch((error) => {
@@ -41,7 +41,9 @@ class Email extends Component {
         let message= 
 `Hi ${this.props.client.first_name}!
 Just a reminder that your prepaid sessions are almost complete. You have ${sessionsLeft} more sessions until your card is full. 
+
 You can renew your sessions in the studio  at your convenience. Thank you for your continued support and great efforts on your fitness goals! See you soon!
+
 Be well!   
 Sue Mackenzie`;
         return(

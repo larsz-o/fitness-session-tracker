@@ -11,15 +11,18 @@ class ManageClients extends Component {
       // the value of 'view' will determine what the user sees, based on what they select in the menu 
       first_name: '',
       last_name: '',
-      phone_number: '',
       email_address: '', 
-      sessions: '', 
+      sessions: 0, 
     }
   }
   addClient = () => {
     this.props.dispatch({ type: 'ADD_CLIENT', payload: this.state });
     this.setState({
       view: 'edit', 
+      first_name: '',
+      last_name: '',
+      email_address: '', 
+      sessions: 0
     })
   }
   setView = (view) => {
@@ -49,9 +52,8 @@ class ManageClients extends Component {
             <div className="add-form">
                 <TextField autoComplete="off" type="text" variant="outlined" label="First Name" value={this.state.first_name} onChange={(event) => this.handleChangeFor(event, 'first_name')} />
                 <TextField autoComplete="off" type="text" variant="outlined" label="Last Name" value={this.state.last_name} onChange={(event) => this.handleChangeFor(event, 'last_name')} />
-                <TextField autoComplete="off" type="text" variant="outlined" label="Phone Number" value={this.state.phone_number} onChange={(event) => this.handleChangeFor(event, 'phone_number')} />
                 <TextField autoComplete="off" type="text" variant="outlined" label="Email Address" value={this.state.email_address} onChange={(event) => this.handleChangeFor(event, 'email_address')} />
-                <TextField autoComplete="off" type="number" variant="outlined" label="Sessions Purchased" value={this.state.sessions} onChange={(event) =>this.handleChangeFor(event, 'sessions')}/>
+                <TextField autoComplete="off" type="number" variant="outlined" label="Sessions Purchased" onChange={(event) =>this.handleChangeFor(event, 'sessions')}/>
                 <Button color="primary" variant="contained" size="large" onClick={this.addClient}>Add</Button>
                 <Button onClick={()=>this.setView('edit')}>Cancel</Button>
             </div>}
@@ -62,7 +64,6 @@ class ManageClients extends Component {
                 <TableRow>
                   <TableCell>First Name</TableCell>
                   <TableCell>Last Name</TableCell>
-                  <TableCell>Phone</TableCell>
                   <TableCell>Email</TableCell>
                   <TableCell>Prepaid Sessions</TableCell>
                   <TableCell>Edit</TableCell>

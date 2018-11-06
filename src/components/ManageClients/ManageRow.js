@@ -10,7 +10,6 @@ class ManageRow extends Component {
             <TableRow>
             <TableCell>{this.props.client.first_name}</TableCell>
             <TableCell>{this.props.client.last_name}</TableCell>
-            <TableCell>{this.props.client.phone_number}</TableCell>
             <TableCell>{this.props.client.email_address}</TableCell>
             <TableCell>{this.props.client.sessions}</TableCell>
             <TableCell><EditButton clientToEdit={this.props.client}/></TableCell>

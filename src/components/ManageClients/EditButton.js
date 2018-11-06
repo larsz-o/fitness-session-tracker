@@ -9,7 +9,6 @@ class EditButton extends Component {
             open: false, 
             first_name: this.props.clientToEdit.first_name, 
             last_name: this.props.clientToEdit.last_name,
-            phone_number: this.props.clientToEdit.phone_number,
             email_address: this.props.clientToEdit.email_address,
             sessions: this.props.clientToEdit.sessions,
         }
@@ -18,7 +17,7 @@ class EditButton extends Component {
         this.setState({
             open: false
         })
-        this.props.dispatch({type: 'EDIT_CLIENT', payload: {first_name: this.state.first_name, last_name: this.state.last_name, phone_number: this.state.phone_number, email_address: this.state.email_address, sessions: this.state.sessions, id: this.props.clientToEdit.id}});
+        this.props.dispatch({type: 'EDIT_CLIENT', payload: {first_name: this.state.first_name, last_name: this.state.last_name, email_address: this.state.email_address, sessions: this.state.sessions, id: this.props.clientToEdit.id}});
     }
     handleOpen = () => {
         this.setState({
@@ -45,7 +44,6 @@ class EditButton extends Component {
             <DialogContent>
                 <TextField type="text" label="First Name" defaultValue={this.props.clientToEdit.first_name} onChange={(event)=>this.handleChangeFor(event, 'first_name')}/>
                 <TextField type="text" label="Last Name" defaultValue={this.props.clientToEdit.last_name} onChange={(event)=>this.handleChangeFor(event, 'last_name')}/>
-                <TextField type="text" label="Phone Number" defaultValue={this.props.clientToEdit.phone_number} onChange={(event)=>this.handleChangeFor(event, 'phone_number')}/>
                 <TextField type="text" label="Email Address" defaultValue={this.props.clientToEdit.email_address} onChange={(event)=>this.handleChangeFor(event, 'email_address')}/>
                 <TextField type="text" label="Total Prepaid Sessions" defaultValue={this.props.clientToEdit.sessions} onChange={(event)=>this.handleChangeFor(event, 'sessions')}/>
                 <DialogActions>

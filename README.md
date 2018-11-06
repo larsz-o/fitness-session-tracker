@@ -1,5 +1,5 @@
 # Fitness Session Tracker 
-A React.js web application for personal trainers to track their clients' sessions.
+A React.js web application for personal trainers to track their clients' sessions. Trainers can add their clients and track how many sessions they've had out of their total number of prepaid sessions. When a client has completed 
 
 ## Prerequisites
 
@@ -10,15 +10,9 @@ Before you get started, make sure you have the following software installed on y
 - [Nodemon](https://nodemon.io/)
 
 ## Create database and table
-
-Create a new database called `fitness_sessions` and create a `person` table:
-
-```SQL
-CREATE TABLE person (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR (80) UNIQUE NOT NULL,
-    password VARCHAR (1000) NOT NULL
-);
+```
+Create a new database called `fitness_sessions`. 
+Set up your database using the commands in `database.sql`. 
 ```
 
 ## Development Setup Instructions
@@ -33,3 +27,5 @@ CREATE TABLE person (
 * Run `npm run server`
 * Run `npm run client`
 * Navigate to `localhost:3000`
+
+## Screenshots
