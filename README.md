@@ -42,9 +42,9 @@ Set up your database using the commands in `database.sql`.
 * Navigate to `localhost:3000`
 
 ## Screenshots
-![card view]()
-![client card filled]()
-![reminder email]()
+![card view](https://github.com/larsz-o/fitness-session-tracker/blob/master/src/images/cardview.png?raw=true)
+![client card filled](https://github.com/larsz-o/fitness-session-tracker/blob/master/src/images/card_thumb.png?raw=true)
+![reminder email](https://github.com/larsz-o/fitness-session-tracker/blob/master/src/images/send-reminder.png?raw=true)
 
 ## Completed Features
 - [x] Trainers can create, view, edit, and delete clients.
@@ -53,6 +53,7 @@ Set up your database using the commands in `database.sql`.
 - [x] The email is send through Nodemailer, directly from the application's server. 
 - [x] Once all prepaid sessions are completed, no additional sessions can be logged, unless the card is cleared and new prepaid sessions are added to the client's record. 
 - [x] Trainers can reset their passwords.
+- [x] Application is mobile-friendly! 
 
 ## Authors
--Lars Mackenzie 
+Lars Mackenzie 
