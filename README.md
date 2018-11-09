@@ -44,7 +44,7 @@ Set up your database using the commands in `database.sql`.
 ## Screenshots
 ![card view](https://github.com/larsz-o/fitness-session-tracker/blob/master/src/images/cardview.png?raw=true)
 ![client card filled](https://github.com/larsz-o/fitness-session-tracker/blob/master/src/images/client_card_full.png?raw=true)
-![reminder email](https://github.com/larsz-o/fitness-session-tracker/blob/master/src/images/send-reminder_email.png?raw=true)
+![reminder email](https://github.com/larsz-o/fitness-session-tracker/blob/master/src/images/send_reminder_email.png?raw=true)
 
 ## Completed Features
 - [x] Trainers can create, view, edit, and delete clients.
