@@ -47,7 +47,7 @@ class ManageClients extends Component {
         </div>
         {this.state.view !== 'add' && 
           <div className="center">
-            <Button variant="contained" color="primary" onClick={()=>this.setView('add')}>Add Client</Button>
+            <Button variant="contained" color="secondary" onClick={()=>this.setView('add')}>Add Client</Button>
         </div>}
        
         <div className="flex-container">
