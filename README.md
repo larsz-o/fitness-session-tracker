@@ -1,7 +1,20 @@
 # Fitness Session Tracker 
-A React.js web application for personal trainers to track their clients' sessions. Trainers can add their clients and track how many sessions they've had out of their total number of prepaid sessions. When a client has completed 
+A React.js web application for personal trainers to track their clients' sessions. Trainers can add their clients and track how many sessions they've had out of their total number of prepaid sessions. Trainers can add clients, including their name, email address, and how many sessions they've purchased. They can then log sessions as they occur. When a client is nearing the end of their prepaid sessions (within 3), an email icon appears on the client's card, which allows the trainer to send a reminder email to the client, asking them to purchase additional sessions. Once the client's card is full (all prepaid sessions have been completed), the trainer can no longer log new sessions, ensuring that all sessions have been pre-purchased. If the trainer clears the client's card, the prepaid sessions are set to 0. The trainer can then edit the client's information (adding more sessions) when they have purchased additional sessions. 
 
-## Prerequisites
+## Built With
+* React
+* Node
+* Express
+* PostgreSQL
+* Nodemailer
+* Material UI
+* Passport
+* Redux
+* Redux-Sagas
+* Chance 
+
+
+## Replicating this application
 
 Before you get started, make sure you have the following software installed on your computer:
 
@@ -29,3 +42,17 @@ Set up your database using the commands in `database.sql`.
 * Navigate to `localhost:3000`
 
 ## Screenshots
+![card view]()
+![client card filled]()
+![reminder email]()
+
+## Completed Features
+- [x] Trainers can create, view, edit, and delete clients.
+- [x] Trainers can log personal training sessions for specific clients.
+- [x] When a client is nearing the end of their prepaid sessions, trainers can email the client to remind them to purchase additional sessions.
+- [x] The email is send through Nodemailer, directly from the application's server. 
+- [x] Once all prepaid sessions are completed, no additional sessions can be logged, unless the card is cleared and new prepaid sessions are added to the client's record. 
+- [x] Trainers can reset their passwords.
+
+## Authors
+-Lars Mackenzie 

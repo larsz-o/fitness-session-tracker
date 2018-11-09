@@ -14,6 +14,7 @@ import UserPage from '../UserPage/UserPage';
 import ManageClients from '../ManageClients/ManageClients';
 import ResetPassword from '../ResetPassword/ResetPassword';
 import NewPassword from '../ResetPassword/NewPassword'; 
+import GridContainer from '../GridContainer/GridContainer'; 
 import './App.css';
 
 class App extends Component {
@@ -23,6 +24,7 @@ class App extends Component {
 
   render() {
     return (
+      <GridContainer>
       <Router>
         <div>
           <Nav />
@@ -62,6 +64,7 @@ class App extends Component {
           <Footer />
         </div>
       </Router>
+      </GridContainer>
   )}
 }
 

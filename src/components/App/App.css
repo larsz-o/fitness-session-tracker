@@ -1,7 +1,11 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0px;
-    background-color: #EDF2E0; 
+    /* background-color:#FAF2E6;  */
+    background-color: white;
+}
+.body-div {
+    height: 100%;
 }
 .add-form{
     display: flex;

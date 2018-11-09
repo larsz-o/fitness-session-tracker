@@ -39,7 +39,6 @@ router.post('/', (req, res) => {
 });
 router.post('/email', (req, res) => {
     if(req.isAuthenticated()){
-     console.log(req.body);
      let mail = {
         from: `Fitness Meets Wellness <${process.env.my_gmail_username}>`,
         to: `${req.body.recipient}`,
@@ -78,7 +77,6 @@ router.post('/email', (req, res) => {
 router.put('/', (req, res) => {
     if(req.isAuthenticated()){
         const client = req.body;
-        console.log(client); 
         const query = `UPDATE "clients" SET "first_name" = $1, "last_name" = $2, "email_address" = $3, "sessions" = $4 WHERE "id" = $5;`; 
         pool.query(query, [client.first_name, client.last_name, client.email_address, client.sessions, client.id]).then((results) => {
             res.sendStatus(200);

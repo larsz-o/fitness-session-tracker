@@ -1,5 +1,5 @@
 import React, {Component} from 'react'; 
-import {Input, Button, Typography, FormLabel} from '@material-ui/core'; 
+import {Input, Button, FormLabel} from '@material-ui/core'; 
 import axios from 'axios';
 
 class NewPassword extends Component {

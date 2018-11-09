@@ -43,7 +43,6 @@ router.delete('/clear', (req, res) => {
             const client = await pool.connect();
             try {
                 await client.query('BEGIN');
-                console.log(req.query.id);
                 let query = `DELETE FROM "sessions" WHERE "client_id" = $1;`;
                 await client.query(query, [req.query.id]); 
                 query = `UPDATE "clients" SET "sessions" = 0 WHERE "id" = $1;`; 
@@ -86,7 +85,6 @@ router.delete('/remove', (req, res) => {
             try {
                 await client.query('BEGIN');
                 const fitnessClient = req.query.id; 
-                console.log(fitnessClient);
                 let query = `DELETE FROM "sessions" WHERE "client_id" = $1;`;
                 let values = [fitnessClient]; 
                 await client.query(query, values); 
