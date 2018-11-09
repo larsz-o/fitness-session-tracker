@@ -25,6 +25,9 @@ class ManageClients extends Component {
       sessions: 0
     })
   }
+  componentDidMount(){
+    this.props.dispatch({type: 'FETCH_CLIENTS'})
+  }
   setView = (view) => {
     this.setState({
       view: view
