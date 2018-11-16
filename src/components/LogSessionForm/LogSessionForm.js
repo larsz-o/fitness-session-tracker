@@ -51,7 +51,7 @@ class LogSessionForm extends Component {
                     <DialogTitle>Log Session</DialogTitle>
                     <DialogContent>
                         <DialogContentText>Select Date</DialogContentText>
-                        <TextField onChange={(event) => this.handleChangeFor(event, 'date')} type="date" value={this.state.date} />
+                        <TextField onChange={(event) => this.handleChangeFor(event, 'date')} value={this.state.date} />
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.handleClose}>Cancel</Button>
