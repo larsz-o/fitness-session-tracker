@@ -32,13 +32,10 @@
   "scripts": {
     "start": "node server/server.js",
     "client": "react-scripts start",
-    "server": "nodemon --watch server server/server.js",
+    "server": "node server server/server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  },
-  "devDependencies": {
-    "nodemon": "^1.17.2"
   },
   "browserslist": [
     ">0.2%",
