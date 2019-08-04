@@ -13,6 +13,7 @@ class ManageClients extends Component {
       last_name: '',
       email_address: '', 
       sessions: 0, 
+      isDesktop: true
     }
   }
   addClient = () => {
@@ -26,7 +27,11 @@ class ManageClients extends Component {
     })
   }
   componentDidMount(){
-    this.props.dispatch({type: 'FETCH_CLIENTS'})
+    this.props.dispatch({type: 'FETCH_CLIENTS'});
+    window.addEventListener('resize', this.updatePredicate);
+  }
+  componentWillUnmount(){
+    window.removeEventListener('resize', this.updatePredicate);
   }
   setView = (view) => {
     this.setState({
@@ -39,6 +44,18 @@ class ManageClients extends Component {
       [property]: event.target.value
     })
   }
+  updatePredicate = () => {
+    if (window.innerWidth < 1024){
+      this.setState({
+        isDesktop: false
+    })
+    } else {
+      this.setState({
+        isDesktop: true
+      })
+    }
+    
+}
   render() {
     return (
       <div className="body-div">
@@ -61,7 +78,7 @@ class ManageClients extends Component {
                 <Button onClick={()=>this.setView('edit')}>Cancel</Button>
             </div>}
         {this.state.view === 'edit' && 
-          <div>
+          <div>{this.state.isDesktop &&
             <Table className="manage-table">
               <TableHead>
                 <TableRow>
@@ -80,8 +97,19 @@ class ManageClients extends Component {
           );
         })}
               </TableBody>
-            </Table>
+            </Table>}
+            {!this.state.isDesktop && <div className="client-card">
+                {this.props.clients.map((client, i) => {
+                  return (
+                    <div className="card-body" key={i}>
+                      <h3>{client.first_name} {client.last_name}</h3>
+                    </div>
+                  )
+                })}
+
+            </div>}
         </div>}
+   
         </div>
       </div>
     );

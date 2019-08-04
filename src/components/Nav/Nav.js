@@ -5,12 +5,12 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 
 const Nav = (props) => (
-  <div className="nav">
+  <div className="padding-left">
+    <div className="nav">
     <Link to="/home">
     <img src={require('../../images/larger-logo-test.jpg')}/>
     </Link>
-   
-    <div className="nav-right">
+    </div>
       <Link className="nav-link" to="/dashboard">
         {/* Show this link if they are logged in or not,
         but call this link 'Home' if they are logged in,
@@ -26,8 +26,8 @@ const Nav = (props) => (
           <LogOutButton className="nav-link"/>
         </>
       )}
-    </div>
-  </div>
+      </div>
+    
 );
 
 const mapStateToProps = state => ({

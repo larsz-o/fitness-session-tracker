@@ -25,7 +25,7 @@ class App extends Component {
 
   render() {
     return (
-      <GridContainer>
+
       <Router>
         <div>
           <Nav />
@@ -66,7 +66,7 @@ class App extends Component {
           <Footer />
         </div>
       </Router>
-      </GridContainer>
+    
   )}
 }
 

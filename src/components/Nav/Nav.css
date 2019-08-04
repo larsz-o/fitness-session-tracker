@@ -7,15 +7,13 @@
 }
 
 .nav {
-  overflow: hidden;
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
 .nav-link {
-  float: left;
   color: black;
   text-align: center;
   padding: 24px 10px;
@@ -30,4 +28,7 @@
 
 .nav-right {
   float: right;
+}
+.padding-left{
+  padding-left: 5vw;
 }
