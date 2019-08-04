@@ -6,8 +6,6 @@ import EditButton from './EditButton';
 import DeleteClient from '../DeleteClient/DeleteClient';
 import '../ClientCard/clientcard.css';
 
-let desktop = true; 
-
 class ManageClients extends Component {
   constructor(props) {
     super(props);
@@ -18,7 +16,7 @@ class ManageClients extends Component {
       last_name: '',
       email_address: '', 
       sessions: 0, 
-      isDesktop: desktop
+      isDesktop: true;
     }
   }
   addClient = () => {
@@ -34,6 +32,7 @@ class ManageClients extends Component {
   componentDidMount(){
     this.props.dispatch({type: 'FETCH_CLIENTS'});
     this.props.dispatch({type: 'FETCH_SESSIONS'});
+    this.updatePredicate();
     window.addEventListener('resize', this.updatePredicate);
   }
   componentWillUnmount(){
@@ -63,11 +62,7 @@ class ManageClients extends Component {
     
 }
   render() {
-    if(window.innerWidth < 1024){
-      desktop = false;
-    } else {
-      desktop = true;
-    }
+let isDesktop = this.state.isDesktop;
 
     return (
       <div className="body-div">
@@ -90,7 +85,7 @@ class ManageClients extends Component {
                 <Button onClick={()=>this.setView('edit')}>Cancel</Button>
             </div>}
         {this.state.view === 'edit' && 
-          <div>{this.state.isDesktop &&
+          <div>{isDesktop &&
             <Table className="manage-table">
               <TableHead>
                 <TableRow>
@@ -111,7 +106,7 @@ class ManageClients extends Component {
         })}
               </TableBody>
             </Table>}
-            {!this.state.isDesktop && <div className="client-card-container">
+            {!isDesktop && <div className="client-card-container">
                 {this.props.clients.map((client, i) => {
                   return (
                     <div className="card" key={i}>
