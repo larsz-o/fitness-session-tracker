@@ -11,7 +11,8 @@ CREATE TABLE clients (
 	"first_name" varchar (80) not null, 
 	"last_name" varchar (80) not null, 
 	"email_address" varchar (80), 
-	"sessions" int
+	"sessions" int,
+	"person_id" int
 );
 
 CREATE TABLE sessions (

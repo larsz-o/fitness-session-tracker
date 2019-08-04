@@ -42,7 +42,6 @@ class ManageClients extends Component {
   render() {
     return (
       <div className="body-div">
-        {JSON.stringify(this.state)}
         <div className="flex-container-header">
             <h2>Manage Clients</h2>
         </div>
