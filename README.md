@@ -39,8 +39,7 @@ Set up your database using the commands in `database.sql`.
 * Navigate to `localhost:3000`
 
 ## Screenshots
-![home screen](https://)
-![card view](https://github.com/larsz-o/fitness-session-tracker/blob/master/src/images/cardview.png?raw=true)
+![home screen](https://github.com/larsz-o/fitness-session-tracker/blob/master/src/images/login.png?raw=true)
 ![client card filled](https://github.com/larsz-o/fitness-session-tracker/blob/master/src/images/client_card_full.png?raw=true)
 ![reminder email](https://github.com/larsz-o/fitness-session-tracker/blob/master/src/images/send_reminder_email.png?raw=true)
 
