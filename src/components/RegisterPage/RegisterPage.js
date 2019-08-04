@@ -94,6 +94,7 @@ class RegisterPage extends Component {
               color="primary"
             >Register</Button>
           </div>
+          <br/>
           <a className="nav-link" href="/#/dashboard">Already registered? Login</a>
         </form>
         </div>

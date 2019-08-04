@@ -6,6 +6,7 @@ import EditButton from './EditButton';
 import DeleteClient from '../DeleteClient/DeleteClient';
 import '../ClientCard/clientcard.css';
 
+let desktop; 
 class ManageClients extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +17,7 @@ class ManageClients extends Component {
       last_name: '',
       email_address: '', 
       sessions: 0, 
-      isDesktop: true
+      isDesktop: desktop
     }
   }
   addClient = () => {
@@ -28,6 +29,9 @@ class ManageClients extends Component {
       email_address: '', 
       sessions: 0,
     })
+  }
+  componentWillMount(){
+    window.addEventListener('resize', this.updatePredicate);
   }
   componentDidMount(){
     this.props.dispatch({type: 'FETCH_CLIENTS'});
@@ -61,7 +65,12 @@ class ManageClients extends Component {
     
 }
   render() {
-   
+    if(window.innerWidth < 1024){
+      desktop = false;
+    } else {
+      desktop = true;
+    }
+
     return (
       <div className="body-div">
         <div className="flex-container-header">
