@@ -1,21 +1,22 @@
 .nav-title {
-    font-size: 24px;
+    font-size: 2em;
     font-family: 'Roboto', 'sans-serif';
     font-weight: 900;
-    display: inline-block;
-    color: black;
-    padding-left: 10px;
+    color: #3d663d;
+    text-decoration: none; 
 }
 
 .nav {
   overflow: hidden;
-  background-color:#1fcecb;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
 .nav-link {
   float: left;
   color: black;
-  background-color: #1fcecb;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;

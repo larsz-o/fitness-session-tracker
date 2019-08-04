@@ -1,3 +1,6 @@
+* {
+    box-sizing: border-box;
+}
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0px;
@@ -84,12 +87,11 @@ input {
 .login-form {
     justify-content: center;
     margin-left: 35vw;
-    /* width: 50vw;  */
     margin-right: 30vw; 
     margin-top: 10vh;
 }
 .log-in, .log-out, .register {
-  background-color: #00acb0;
+  background-color: #3d663d;
   border-radius: 4px;
   color: #f8f8f8;
   min-height: 50px;
@@ -99,9 +101,11 @@ input {
 }
 
 .log-in:hover, .log-out:hover, .register:hover {
-  background-color: #008183;
+  background-color:#3d663d;
 }
-
+.login-button {
+    width: 100%;
+}
 /* This line makes the "Register" and "Login" buttons look like links */
 .link-button {
     background:none;

@@ -70,7 +70,7 @@ class LoginPage extends Component {
             </label>
           </div>
           <div className="button-margin">
-            <Button variant="contained" color="primary" onClick={this.login}>Login</Button><br/><br/>
+            <Button variant="contained" color="primary" className="login-button" onClick={this.login}>Login</Button><br/><br/>
             <Button onClick={this.resetPassword}>Forgot Password?</Button>
           </div>
       </div>
