@@ -8,8 +8,8 @@ const transporter = require('../modules/nodemailer');
  */
 router.get('/', (req, res) => {
     if (req.isAuthenticated()) {
-        const query = `SELECT * FROM "clients" ORDER BY "last_name" ASC;`;
-        pool.query(query).then((results) => {
+        const query = `SELECT * FROM "clients" WHERE "person_id" = $1 ORDER BY "last_name" ASC;`;
+        pool.query(query, [req.user.id]).then((results) => {
             res.send(results.rows);
         }).catch((error) => {
             console.log('Error getting clients', error);
