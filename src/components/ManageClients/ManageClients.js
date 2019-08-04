@@ -31,6 +31,7 @@ class ManageClients extends Component {
   }
   componentDidMount(){
     this.props.dispatch({type: 'FETCH_CLIENTS'});
+    this.props.dispatch({type: 'FETCH_SESSIONS'});
     window.addEventListener('resize', this.updatePredicate);
   }
   componentWillUnmount(){
@@ -60,6 +61,7 @@ class ManageClients extends Component {
     
 }
   render() {
+   
     return (
       <div className="body-div">
         <div className="flex-container-header">
@@ -105,12 +107,13 @@ class ManageClients extends Component {
                 {this.props.clients.map((client, i) => {
                   return (
                     <div className="card" key={i}>
-                     
                       <div className="flex-box card-title"> <h3>{client.first_name} {client.last_name}</h3> <EditButton clientToEdit={client}/>
                       <DeleteClient client={client}/></div>
                       <p>Email: <a href={`mailto:${client.email_address}`}>{client.email_address}</a></p>
-                      <p>Sessions Remaining: {client.sessions}</p>
-                     
+                      <p>Prepaid Sessions: {client.sessions}</p>
+                      <p>Sessions Remaining: 
+                    &nbsp;{client.sessions - this.props.testing.filter(sess => sess.id === client.id).length}</p>
+                   
                     </div>
                   )
                 })}
@@ -125,6 +128,7 @@ class ManageClients extends Component {
 }
 const mapStateToProps = state => ({
   user: state.user,
-  clients: state.clients.clients
+  clients: state.clients.clients,
+  testing: state.sessions.sessions
 });
 export default connect(mapStateToProps)(ManageClients);
