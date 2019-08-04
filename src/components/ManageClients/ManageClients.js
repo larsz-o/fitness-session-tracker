@@ -91,6 +91,7 @@ class ManageClients extends Component {
                   <TableCell>Last Name</TableCell>
                   <TableCell>Email</TableCell>
                   <TableCell>Prepaid Sessions</TableCell>
+                  <TableCell>Sessions Remaining</TableCell>
                   <TableCell>Edit</TableCell>
                   <TableCell>Delete</TableCell>
                 </TableRow>
@@ -110,9 +111,9 @@ class ManageClients extends Component {
                       <div className="flex-box card-title"> <h3>{client.first_name} {client.last_name}</h3> <EditButton clientToEdit={client}/>
                       <DeleteClient client={client}/></div>
                       <p>Email: <a href={`mailto:${client.email_address}`}>{client.email_address}</a></p>
-                      <p>Prepaid Sessions: {client.sessions}</p>
+                     <div classNam="flex-box-right"><p>Prepaid Sessions: {client.sessions}</p>
                       <p>Sessions Remaining: 
-                    &nbsp;{client.sessions - this.props.testing.filter(sess => sess.id === client.id).length}</p>
+                    &nbsp;{client.sessions - this.props.testing.filter(sess => sess.id === client.id).length}</p></div>
                    
                     </div>
                   )
