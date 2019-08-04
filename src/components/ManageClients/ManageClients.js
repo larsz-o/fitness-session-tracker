@@ -71,11 +71,12 @@ let isDesktop = this.state.isDesktop;
         </div>
         {this.state.view !== 'add' && 
           <div className="center">
-            <Button variant="contained" color="secondary" onClick={()=>this.setView('add')}>Add Client</Button>
+            <Button variant="contained" color="primary" onClick={()=>this.setView('add')}>Add Client</Button>
         </div>}
        
         <div className="flex-container body-div">
           {this.state.view === 'add' &&
+          <div className="flex-box">
             <div className="add-form">
                 <TextField autoComplete="off" type="text" variant="outlined" label="First Name" value={this.state.first_name} onChange={(event) => this.handleChangeFor(event, 'first_name')} />
                 <TextField autoComplete="off" type="text" variant="outlined" label="Last Name" value={this.state.last_name} onChange={(event) => this.handleChangeFor(event, 'last_name')} />
@@ -83,7 +84,7 @@ let isDesktop = this.state.isDesktop;
                 <TextField autoComplete="off" type="number" variant="outlined" label="Sessions Purchased" onChange={(event) =>this.handleChangeFor(event, 'sessions')}/>
                 <Button color="primary" variant="contained" size="large" onClick={this.addClient}>Add</Button>
                 <Button onClick={()=>this.setView('edit')}>Cancel</Button>
-            </div>}
+           </div> </div>}
         {this.state.view === 'edit' && 
           <div>{isDesktop &&
             <Table className="manage-table">
