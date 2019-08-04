@@ -15,6 +15,7 @@ import ManageClients from '../ManageClients/ManageClients';
 import ResetPassword from '../ResetPassword/ResetPassword';
 import NewPassword from '../ResetPassword/NewPassword'; 
 import GridContainer from '../GridContainer/GridContainer'; 
+import Register from '../RegisterPage/RegisterPage';
 import './App.css';
 
 class App extends Component {
@@ -58,6 +59,7 @@ class App extends Component {
               path="/resetpassword/:token"
               component={NewPassword}
             />
+            <Route exact path="/register" component={Register}/>
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404: Page Not Found</h1>} />
           </Switch>

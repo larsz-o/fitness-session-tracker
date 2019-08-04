@@ -35,7 +35,7 @@ class LoginPage extends Component {
   }
   render() {
     return (
-      <div className="login-form">
+      <div>
         {this.props.errors.loginMessage && (
           <h2
             className="alert"
@@ -44,8 +44,7 @@ class LoginPage extends Component {
             {this.props.errors.loginMessage}
           </h2>
         )}
-          <h1>Login</h1>
-          <div>
+          <div className="login-form">
             <label htmlFor="username">
               Username:
               <TextField
@@ -56,7 +55,7 @@ class LoginPage extends Component {
                 onChange={this.handleInputChangeFor('username')}
               />
             </label>
-          </div>
+          
           <div>
             <label htmlFor="password">
               Password:
@@ -72,6 +71,7 @@ class LoginPage extends Component {
           <div className="button-margin">
             <Button variant="contained" color="primary" className="login-button" onClick={this.login}>Login</Button><br/><br/>
             <Button onClick={this.resetPassword}>Forgot Password?</Button>
+          </div>
           </div>
       </div>
     );

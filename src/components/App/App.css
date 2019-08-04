@@ -71,9 +71,7 @@ body {
 form {
     background-color: #dbd5d5;
     width: 30%;
-    height: 250px;
-    margin: 20px auto;
-    padding: 25px;
+    margin: 20px;
     border-radius: 2px;
 }
 .form-input {
