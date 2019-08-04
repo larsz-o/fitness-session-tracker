@@ -6,7 +6,8 @@ import EditButton from './EditButton';
 import DeleteClient from '../DeleteClient/DeleteClient';
 import '../ClientCard/clientcard.css';
 
-let desktop; 
+let desktop = true; 
+
 class ManageClients extends Component {
   constructor(props) {
     super(props);
