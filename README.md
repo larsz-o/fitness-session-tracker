@@ -50,7 +50,6 @@ Set up your database using the commands in `database.sql`.
 - [x] The email is send through Nodemailer, directly from the application's server. 
 - [x] Once all prepaid sessions are completed, no additional sessions can be logged, unless the card is cleared and new prepaid sessions are added to the client's record. 
 - [x] Trainers can reset their passwords.
-- [x] Application is mobile-friendly! 
 
 ## Authors
 Lars Mackenzie 
