@@ -16,7 +16,7 @@ class ManageClients extends Component {
       last_name: '',
       email_address: '', 
       sessions: 0, 
-      isDesktop: true;
+      isDesktop: true
     }
   }
   addClient = () => {
