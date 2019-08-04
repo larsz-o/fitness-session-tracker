@@ -68,6 +68,12 @@ body {
     flex-wrap: wrap; 
     justify-content: right; 
 }
+.flex-box-nowrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
 form{
     margin: 20px;
     border-radius: 2px;

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { TextField, Button, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
 import ManageRow from './ManageRow'; 
+import EditButton from './EditButton';
+import DeleteClient from '../DeleteClient/DeleteClient';
+import '../ClientCard/clientcard.css';
 
 class ManageClients extends Component {
   constructor(props) {
@@ -98,11 +101,16 @@ class ManageClients extends Component {
         })}
               </TableBody>
             </Table>}
-            {!this.state.isDesktop && <div className="client-card">
+            {!this.state.isDesktop && <div className="client-card-container">
                 {this.props.clients.map((client, i) => {
                   return (
-                    <div className="card-body" key={i}>
-                      <h3>{client.first_name} {client.last_name}</h3>
+                    <div className="card" key={i}>
+                     
+                      <div className="flex-box card-title"> <h3>{client.first_name} {client.last_name}</h3> <EditButton clientToEdit={client}/>
+                      <DeleteClient client={client}/></div>
+                      <p>Email: <a href={`mailto:${client.email_address}`}>{client.email_address}</a></p>
+                      <p>Sessions Remaining: {client.sessions}</p>
+                     
                     </div>
                   )
                 })}

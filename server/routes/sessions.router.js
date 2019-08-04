@@ -88,7 +88,8 @@ router.delete('/remove', (req, res) => {
                 let query = `DELETE FROM "sessions" WHERE "client_id" = $1;`;
                 let values = [fitnessClient]; 
                 await client.query(query, values); 
-                query = `DELETE FROM "clients" WHERE "id" = $1;`; 
+                query = `DELETE FROM "clients" WHERE "id" = $1 AND "person_id" = $2;`; 
+                values = [fitnessClient, req.user.id]
                 await client.query(query, values); 
                 await client.query('COMMIT');
                     res.sendStatus(200); 

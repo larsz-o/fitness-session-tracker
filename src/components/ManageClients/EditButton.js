@@ -1,7 +1,7 @@
 import React, {Component} from 'react'; 
-import { Button, Dialog, DialogTitle, DialogContent, DialogActions, TextField } from '@material-ui/core'; 
+import { IconButton, Button, Dialog, DialogTitle, DialogContent, DialogActions, TextField } from '@material-ui/core'; 
 import { connect } from 'react-redux'; 
-
+import {Edit} from '@material-ui/icons'
 class EditButton extends Component {
     constructor(props){
         super(props);
@@ -38,7 +38,7 @@ class EditButton extends Component {
     render(){
         return(
         <div>
-            <Button onClick={this.handleOpen}>Edit</Button>
+            <IconButton onClick={this.handleOpen}><Edit/></IconButton>
             <Dialog open={this.state.open} onClose={this.handleClose} fullWidth={true}>
             <DialogTitle>Edit Client Details</DialogTitle>
             <DialogContent>

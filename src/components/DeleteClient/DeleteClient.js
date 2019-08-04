@@ -13,7 +13,9 @@ class DeleteClient extends Component {
     }
     render(){
         return(
-            <IconButton onClick={()=>this.handleDelete(this.props.client.id)}><Delete/></IconButton>
+            <div>
+                <IconButton onClick={()=>this.handleDelete(this.props.client.id)}><Delete/></IconButton>
+            </div>
         );
     }
 }

@@ -10,7 +10,7 @@ class ManageRow extends Component {
             <TableRow>
             <TableCell>{this.props.client.first_name}</TableCell>
             <TableCell>{this.props.client.last_name}</TableCell>
-            <TableCell>{this.props.client.email_address}</TableCell>
+            <TableCell><a href={`mailto:${this.props.client.email_address}`}>{this.props.client.email_address}</a></TableCell>
             <TableCell>{this.props.client.sessions}</TableCell>
             <TableCell><EditButton clientToEdit={this.props.client}/></TableCell>
             <TableCell><DeleteClient client={this.props.client}/></TableCell>

@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
 router.post('/email', (req, res) => {
     if(req.isAuthenticated()){
      let mail = {
-        from: `Fitness Meets Wellness <${process.env.my_gmail_username}>`,
+        from: `Fitness Meets Wellness <${req.user.email_address}>`,
         to: `${req.body.recipient}`,
         subject: 'Fitness Meets Wellness Session Renewal Reminder',
         text: `Hi ${req.body.name}! 
