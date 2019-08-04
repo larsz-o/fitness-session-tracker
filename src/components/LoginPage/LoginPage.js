@@ -35,7 +35,7 @@ class LoginPage extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="body-div">
         {this.props.errors.loginMessage && (
           <h2
             className="alert"
@@ -45,7 +45,7 @@ class LoginPage extends Component {
           </h2>
         )}
           <div className="login-form">
-            <label htmlFor="username">
+            <label htmlFor="username">&nbsp;&nbsp;
               Username:
               <TextField
                 type="text"
@@ -57,7 +57,7 @@ class LoginPage extends Component {
             </label>
           
           <div>
-            <label htmlFor="password">
+            <label htmlFor="password">&nbsp;&nbsp;
               Password:
               <TextField
                 type="password"

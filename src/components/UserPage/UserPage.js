@@ -28,7 +28,7 @@ class UserPage extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="body-div">
         <div className="flex-container">
             <h2>Select a Client</h2>
         </div>

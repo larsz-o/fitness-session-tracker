@@ -78,7 +78,7 @@ class ManageClients extends Component {
             <Button variant="contained" color="secondary" onClick={()=>this.setView('add')}>Add Client</Button>
         </div>}
        
-        <div className="flex-container">
+        <div className="flex-container body-div">
           {this.state.view === 'add' &&
             <div className="add-form">
                 <TextField autoComplete="off" type="text" variant="outlined" label="First Name" value={this.state.first_name} onChange={(event) => this.handleChangeFor(event, 'first_name')} />
