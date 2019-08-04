@@ -79,6 +79,7 @@ class LoginPage extends Component {
 }
 const mapStateToProps = state => ({
   errors: state.errors,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(LoginPage);

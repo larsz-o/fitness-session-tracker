@@ -39,7 +39,7 @@ class App extends Component {
             Even though it seems like they are different pages, the user is always on localhost:3000/home */}
             <ProtectedRoute
               exact
-              path="/home"
+              path="/dashboard"
               component={UserPage}
             />
             {/* This works the same as the other protected route, except that if the user is logged in,
@@ -59,7 +59,7 @@ class App extends Component {
               path="/resetpassword/:token"
               component={NewPassword}
             />
-            <Route exact path="/register" component={Register}/>
+            <Route exact path="/home" component={Register}/>
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404: Page Not Found</h1>} />
           </Switch>

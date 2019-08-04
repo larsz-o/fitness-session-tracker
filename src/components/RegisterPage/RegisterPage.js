@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { Button, TextField } from '@material-ui/core'; 
 
 class RegisterPage extends Component {
   state = {
@@ -48,12 +49,13 @@ class RegisterPage extends Component {
             {this.props.errors.registrationMessage}
           </h2>
         )}
+        <div className="flex-box">
         <form onSubmit={this.registerUser}>
           <h1>Register User</h1>
           <div>
             <label htmlFor="username">
               Username:
-              <input
+              <TextField
                 type="text"
                 name="username"
                 value={this.state.username}
@@ -64,7 +66,7 @@ class RegisterPage extends Component {
           <div>
             <label htmlFor="password">
               Password:
-              <input
+              <TextField
                 type="password"
                 name="password"
                 value={this.state.password}
@@ -75,7 +77,7 @@ class RegisterPage extends Component {
           <div>
             <label htmlFor="email_address">
               Email Address:
-              <input
+              <TextField
                 type="email"
                 name="email"
                 value={this.state.email}
@@ -84,24 +86,26 @@ class RegisterPage extends Component {
             </label>
           </div>
           <div>
-            <input
-              className="register"
+            <Button
+              // className="register"
               type="submit"
               name="submit"
-              value="Register"
-            />
+              variant="contained"
+              color="primary"
+            >Register</Button>
           </div>
+          <a className="nav-link" href="/#/dashboard">Already registered? Login</a>
         </form>
-        <center>
-          <button
+        </div>
+          {/* <button
             type="button"
             className="link-button"
             onClick={() => {this.props.dispatch({type: 'SET_TO_LOGIN_MODE'})}}
           >
             Login
-          </button>
-          <a href="/home">Login</a>
-        </center>
+          </button> */}
+        
+       
       </div>
     );
   }

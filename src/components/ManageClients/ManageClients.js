@@ -22,7 +22,7 @@ class ManageClients extends Component {
       first_name: '',
       last_name: '',
       email_address: '', 
-      sessions: 0
+      sessions: 0,
     })
   }
   componentDidMount(){
@@ -42,6 +42,7 @@ class ManageClients extends Component {
   render() {
     return (
       <div className="body-div">
+        {JSON.stringify(this.state)}
         <div className="flex-container-header">
             <h2>Manage Clients</h2>
         </div>
