@@ -7,7 +7,7 @@ import './Nav.css';
 const Nav = (props) => (
   <div className="padding-left">
     <div className="nav">
-    <Link to="/home">
+    <Link to="/dashboard">
     <img src={require('../../images/larger-logo-test.jpg')} alt="fitness meets wellness logo"/>
     </Link>
     </div>
