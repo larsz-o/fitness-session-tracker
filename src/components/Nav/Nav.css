@@ -25,6 +25,7 @@
   border:none;
   cursor: pointer;
   outline:0;
+  background-color: white;
 }
 
 .nav-right {
