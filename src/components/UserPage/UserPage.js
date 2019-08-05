@@ -29,10 +29,8 @@ class UserPage extends Component {
   render() {
     return (
       <div className="body-div">
-        <div className="flex-container">
-            <h2>Select a Client</h2>
-        </div>
-        <div className="flex-container">
+        <div className="flex-box outline">
+            <h2>Select a Client</h2><br/>
           <NativeSelect onChange={(event)=>this.handleClientChange(event)}>
           <option value=''></option>
           {this.props.clients.map((client, i) => {
@@ -41,7 +39,9 @@ class UserPage extends Component {
             );
           })}
         </NativeSelect>
+       
         </div>
+    
         {this.props.currentClient.length > 0 && <ClientCard />}
       </div>
     );
