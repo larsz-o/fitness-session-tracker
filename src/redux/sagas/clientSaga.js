@@ -1,12 +1,13 @@
 import { put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
+import swal from 'sweetalert'; 
 
 function* addClient(action) {
     try {
         // post a new client 
         yield axios.post('/api/clients', action.payload);
         yield put ({ type: 'FETCH_CLIENTS'}); 
-        alert('Client added!');
+        swal('Success', 'Client added!', 'success');
     } catch (error) {
         console.log('Error adding clients', error); 
         alert('Error adding client'); 
@@ -16,11 +17,11 @@ function* deleteClient(action) {
     try {
         // deletes all of a client's sessions then deletes the client 
         axios.delete(`/api/sessions/remove?id=${action.payload}`); 
-        alert('Sucess!'); 
+        swal('Success', 'Client added!', 'success');
         yield put ({type: 'FETCH_CLIENTS'});
     } catch (error) {
         console.log('Error deleting client', error); 
-        alert('Error deleting client. Please try again.'); 
+        swal('Error', 'Error deleting client, please try again', 'error');
     }
 }
 function* editClient(action) {
@@ -29,7 +30,7 @@ function* editClient(action) {
         console.log(action.payload);
         yield axios.put('/api/clients', action.payload);
         yield put ({type: 'FETCH_CLIENTS'});
-        alert('Client edited!'); 
+        swal('Success', 'Client edited!', 'success');
     } catch (error) {
         console.log('Error editing client', error); 
         alert('Error editing client. Please try again.');
