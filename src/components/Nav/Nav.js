@@ -11,7 +11,7 @@ const Nav = (props) => (
     <img src={require('../../images/larger-logo-test.jpg')} alt="fitness meets wellness logo"/>
     </Link>
     </div>
-      <Link className="nav-link" to="/dashboard">
+      <Link className="nav-link" to="/">
         {/* Show this link if they are logged in or not,
         but call this link 'Home' if they are logged in,
         and call this link 'Login / Register' if they are not */}
