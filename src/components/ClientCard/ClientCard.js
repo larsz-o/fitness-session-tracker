@@ -21,6 +21,7 @@ class ClientCard extends Component {
     }
     render() {
         let sessions = this.props.sessions.filter(session => session.client_id === this.props.currentClient.id);
+        let clientReminder = this.props.reminders.filter(reminder => reminder.client_id === this.props.currentClient.id);
         return (
             <div className="flex-container">
                 <div className="card">
@@ -31,6 +32,9 @@ class ClientCard extends Component {
                         {sessions.length < this.props.currentClient.sessions && <LogSessions client={this.props.currentClient} />}
                     </div>
                     </div>
+                    {clientReminder.length > 0 && <div className="reminders">
+                        {clientReminder[0].active && <p>Payment reminder sent: {moment(reminder[0].date).format('MMMM Do YYYY')}</p>}
+                    </div>}
                     <p>Prepaid for {this.props.currentClient.sessions} sessions</p>
                     <div className="flex-box">
                         {sessions.map((session, i) => {
@@ -49,6 +53,7 @@ class ClientCard extends Component {
 }
 const mapStateToProps = state => ({
     sessions: state.sessions.sessions, 
+    reminders: state.sessions.reminders,
     currentClient: state.clients.currentClient[0]
 });
 export default connect(mapStateToProps)(ClientCard); 

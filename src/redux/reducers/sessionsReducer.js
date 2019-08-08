@@ -6,7 +6,14 @@ const sessions = (state = [], action) => {
     } 
     return state
 }
+const reminders = (state = [], action) => {
+    if (action.type === 'SET_REMINDERS'){
+        return action.payload;
+    }
+    return state;
+}
 
 export default combineReducers({
-    sessions
+    sessions, 
+    reminders
 });

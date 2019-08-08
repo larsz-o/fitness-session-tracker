@@ -17,6 +17,9 @@ class UserPage extends Component {
   getClients = () => {
     this.props.dispatch({ type: 'FETCH_CLIENTS' });
   }
+  getReminders = () => {
+    this.props.dispatch({ type: 'FETCH_REMINDERS'});
+  }
   getSessions = () => {
     this.props.dispatch({ type: 'FETCH_SESSIONS' });
   }
@@ -51,7 +54,7 @@ class UserPage extends Component {
 const mapStateToProps = state => ({
   user: state.user,
   clients: state.clients.clients,
-  currentClient: state.clients.currentClient
+  currentClient: state.clients.currentClient,
 });
 
 export default connect(mapStateToProps)(UserPage);

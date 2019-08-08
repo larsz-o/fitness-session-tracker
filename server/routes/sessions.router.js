@@ -18,6 +18,16 @@ router.get('/', (req, res) => {
         res.sendStatus(403); 
     }
 });
+router.get('/reminders', (req, res) => {
+    if(req.isAuthenticated){
+        const query = `SELECT * FROM "reminders WHERE "trainer_id" = $1;`
+        pool.query(query, [req.user.id]).then((results) => {
+            res.send(results.rows);
+        })
+    } else {
+        res.sendStatus(403);
+    }
+})
 
 /**
  * POST routes 
@@ -36,6 +46,18 @@ router.post('/', (req, res) => {
         res.sendStatus(403); 
     }
 });
+
+router.put('/reminders', (req, res) => {
+    if(req.isAuthenticated()){
+        const id = req.query.id;
+        const today = new Date();
+        const query = `UPDATE "reminders" SET "active" = true, "date" = $1 WHERE client_id = $2 AND trainer_id = $3;`;
+        pool.query(query, [today, id, req.user.id])
+    } else {
+        res.sendStatus(403);
+    }
+})
+
 //deletes all recorded sessions and sets a client's prepaid sessions back down to 0 
 router.delete('/clear', (req, res) => {
     if(req.isAuthenticated()){

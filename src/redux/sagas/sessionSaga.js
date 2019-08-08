@@ -21,6 +21,22 @@ function* deleteSession(action) {
         console.log('Error deleting session', error); 
     }
 }
+function* markSent(action) {
+    try {
+        yield axios.put(`/api/sessions/reminders?id=${action.payload.id}`);
+        yield put ({type: 'FETCH_REMINDERS'});
+    } catch ( error ){
+        console.log('Error marking email as sent')
+    }
+}
+function* fetchReminders(){
+    try {
+        yield axios.get('/api/sessions/reminders');
+        yield put ({type: 'SET_REMINDERS'});
+    } catch (error) {
+        console.log('Error fetching reminders');
+    }
+}
 function* fetchSessions() {
     try {
         // gets all sessions for all existing clients 
@@ -44,6 +60,8 @@ function* sessionSaga() {
     yield takeLatest('FETCH_SESSIONS', fetchSessions);
     yield takeLatest('DELETE_SESSION', deleteSession);
     yield takeLatest('CLEAR_CARD', clearCard);
+    yield takeLatest('FETCH_REMINDERS', fetchReminders);
+    yield takeLatest('MARK_EMAIL_SENT', markSent);
 }
 
 export default sessionSaga;
