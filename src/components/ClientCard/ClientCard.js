@@ -32,6 +32,7 @@ class ClientCard extends Component {
                         {sessions.length < this.props.currentClient.sessions && <LogSessions client={this.props.currentClient} />}
                     </div>
                     </div>
+                    {JSON.stringify(this.props.reminders)}
                     {clientReminder.length > 0 && <div className="reminders">
                         {clientReminder[0].active && <p>Payment reminder sent: {moment(clientReminder[0].date).format('MMMM Do YYYY')}</p>}
                     </div>}
