@@ -32,9 +32,10 @@ class ClientCard extends Component {
             url: `/api/sessions/reminders?id=${this.props.client.id}`
         }).then((results) => {
             console.log(results)
-            this.props.dispatch({type: 'FETCH_REMINDERS'})
+            // this.props.dispatch({type: 'FETCH_REMINDERS'})
+            this.fetchReminders();
         }).catch((error) => {
-            console.log('Error posting email reminder sent');
+            console.log('Error posting email reminder sent', error);
         })
     }
     fetchReminders = () => {
