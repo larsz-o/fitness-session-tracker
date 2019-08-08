@@ -67,7 +67,7 @@ router.delete('/clear', (req, res) => {
                 await client.query('BEGIN');
                 let query = `DELETE FROM "sessions" WHERE "client_id" = $1;`;
                 await client.query(query, [req.query.id]); 
-                query = `UPDATE "clients" SET "sessions" = 0 WHERE "id" = $1;`; 
+                query = `UPDATE "reminders" SET "active" = false WHERE "client_id" = $1;`; 
                 console.log(req.query.id);
                 await client.query(query, [req.query.id]);
                 await client.query('COMMIT');
