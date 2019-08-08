@@ -22,7 +22,7 @@ class Email extends Component {
             url: '/api/clients/email',
             data: {recipient: this.props.client.email_address, name: this.props.client.first_name, sessionsLeft: (this.props.client.sessions - this.props.session.length) }
         }).then((response) => {
-            this.props.markSent();
+            this.props.dispatch({type: 'MARK_EMAIL_SENT', payload: this.props.client.id});
             swal('Success!',`Reminder sent to ${this.props.client.first_name} ${this.props.client.last_name}!`, 'success')
         }).catch((error) => {
             console.log('Error sending reminder. Please try again', error); 
@@ -38,7 +38,7 @@ class Email extends Component {
             open: true
         })
     }
-   
+  
     render(){
         let sessionsLeft = this.props.client.sessions - this.props.session.length;
         let message= 
