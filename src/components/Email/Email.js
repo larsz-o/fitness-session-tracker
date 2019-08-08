@@ -3,6 +3,7 @@ import  {IconButton, Dialog, DialogTitle, DialogContent, DialogActions, DialogCo
 import { MailOutline } from '@material-ui/icons'; 
 import axios from 'axios'; 
 import { connect } from 'react-redux'; 
+import swal from 'sweetalert';
 
 class Email extends Component {
     constructor(props) {
@@ -21,8 +22,7 @@ class Email extends Component {
             url: '/api/clients/email',
             data: {recipient: this.props.client.email_address, name: this.props.client.first_name, sessionsLeft: (this.props.client.sessions - this.props.session.length) }
         }).then((response) => {
-            this.props.dispatch({type: 'MARK_EMAIL_SENT', payload: this.props.client})
-            alert(`Reminder sent to ${this.props.client.first_name} ${this.props.client.last_name}!`)
+            swal('Success!',`Reminder sent to ${this.props.client.first_name} ${this.props.client.last_name}!`, 'success')
         }).catch((error) => {
             console.log('Error sending reminder. Please try again', error); 
         })
