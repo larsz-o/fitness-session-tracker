@@ -32,10 +32,10 @@ function* markSent(action) {
 function* fetchReminders(){
     try {
         const reminders = yield axios.get('/api/sessions/reminders');
-        alert('Reminders retreived')
+        console.log('Reminders retreived')
         yield put ({type: 'SET_REMINDERS', payload: reminders.data});
     } catch (error) {
-        alert('Error fetching reminders');
+        console.log('Error fetching reminders');
     }
 }
 function* fetchSessions() {
