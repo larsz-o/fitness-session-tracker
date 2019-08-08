@@ -32,6 +32,7 @@ class ManageClients extends Component {
   componentDidMount(){
     this.props.dispatch({type: 'FETCH_CLIENTS'});
     this.props.dispatch({type: 'FETCH_SESSIONS'});
+    this.props.dispatch({type: 'FETCH_REMINDERS'});
     this.updatePredicate();
     window.addEventListener('resize', this.updatePredicate);
   }

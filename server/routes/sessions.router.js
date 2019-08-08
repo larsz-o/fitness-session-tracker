@@ -51,8 +51,13 @@ router.post('/reminders', (req, res) => {
     if(req.isAuthenticated()){
         const id = req.query.id;
         const today = new Date();
+        console.log('my info is: ' + id, today, req.user.id);
         const query = `INSERT INTO "reminders" ("client_id", "date", "active", "trainer_id") VALUES ($1, $2, $3, $4) `;
-        pool.query(query, [id, today, true, req.user.id])
+        pool.query(query, [id, today, true, req.user.id]).then((results) => {
+            res.sendStatus(201);
+        }).catch((error) => {
+            console.log('Error posting reminder', error); 
+        })
     } else {
         res.sendStatus(403);
     }
