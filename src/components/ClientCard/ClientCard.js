@@ -12,7 +12,7 @@ class ClientCard extends Component {
     constructor(props){
         super(props);
         this.state = {
-            reminder: []
+            reminders: []
         }
     }
     clearCard = () => {
@@ -49,6 +49,7 @@ class ClientCard extends Component {
             console.log('Getting reminders');
         })
     }
+ 
     render() {
         let sessions = this.props.sessions.filter(session => session.client_id === this.props.currentClient.id);
         let clientReminder = this.state.reminders.filter(reminder => reminder.client_id === this.props.currentClient.id);
