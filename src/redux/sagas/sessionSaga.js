@@ -23,7 +23,7 @@ function* deleteSession(action) {
 }
 function* markSent(action) {
     try {
-        yield axios.put(`/api/sessions/reminders?id=${action.payload.id}`);
+        yield axios.post(`/api/sessions/reminders?id=${action.payload.id}`);
         yield put ({type: 'FETCH_REMINDERS'});
     } catch ( error ){
         console.log('Error marking email as sent')

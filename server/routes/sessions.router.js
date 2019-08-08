@@ -47,12 +47,12 @@ router.post('/', (req, res) => {
     }
 });
 
-router.put('/reminders', (req, res) => {
+router.post('/reminders', (req, res) => {
     if(req.isAuthenticated()){
         const id = req.query.id;
         const today = new Date();
-        const query = `UPDATE "reminders" SET "active" = true, "date" = $1 WHERE client_id = $2 AND trainer_id = $3;`;
-        pool.query(query, [today, id, req.user.id])
+        const query = `INSERT INTO "reminders" ("client_id", "date", "active", "trainer_id") VALUES ($1, $2, $3, $4) `;
+        pool.query(query, [id, today, true, req.user.id])
     } else {
         res.sendStatus(403);
     }
