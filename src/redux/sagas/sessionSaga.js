@@ -35,7 +35,7 @@ function* fetchReminders(){
         console.log('Reminders retreived')
         yield put ({type: 'SET_REMINDERS', payload: reminders.data});
     } catch (error) {
-        console.log('Error fetching reminders');
+        console.log('Error fetching reminders', error);
     }
 }
 function* fetchSessions() {

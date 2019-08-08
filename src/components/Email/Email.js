@@ -22,8 +22,7 @@ class Email extends Component {
             url: '/api/clients/email',
             data: {recipient: this.props.client.email_address, name: this.props.client.first_name, sessionsLeft: (this.props.client.sessions - this.props.session.length) }
         }).then((response) => {
-            
-            this.markSent();
+            this.props.markSent();
             swal('Success!',`Reminder sent to ${this.props.client.first_name} ${this.props.client.last_name}!`, 'success')
         }).catch((error) => {
             console.log('Error sending reminder. Please try again', error); 
@@ -39,18 +38,7 @@ class Email extends Component {
             open: true
         })
     }
-    markSent = () => {
-        // this.props.dispatch({type: 'MARK_EMAIL_SENT', payload: this.props.client.id});
-        axios({
-            method: 'POST',
-            url: `/api/sessions/reminders?id=${this.props.client.id}`
-        }).then((results) => {
-            console.log(results)
-            this.props.dispatch({type: 'FETCH_REMINDERS'})
-        }).catch((error) => {
-            console.log('Error posting email reminder sent');
-        })
-    }
+   
     render(){
         let sessionsLeft = this.props.client.sessions - this.props.session.length;
         let message= 
