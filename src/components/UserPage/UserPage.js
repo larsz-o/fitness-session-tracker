@@ -32,7 +32,7 @@ class UserPage extends Component {
   render() {
     return (
       <div className="body-div">
-        <div className="flex-box outline">
+        <div className="flex-box">
             <h2>Select a Client</h2><br/>
           <NativeSelect onChange={(event)=>this.handleClientChange(event)}>
           <option value=''></option>
