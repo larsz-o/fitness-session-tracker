@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 });
 router.get('/reminders', (req, res) => {
     if(req.isAuthenticated){
-        const query = `SELECT * FROM "reminders";`
+        const query = `SELECT * FROM "reminders" WHERE "trainer_id" = $1;`
         pool.query(query, [req.user.id]).then((results) => {
             res.send(results.rows);
         })
