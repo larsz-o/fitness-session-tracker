@@ -9,7 +9,7 @@ import { Delete } from '@material-ui/icons';
 
 class ClientCard extends Component {
     clearCard = () => {
-        if(window.confirm('Are you sure to you want to clear this card? All records will be deleted and prepaid sessions will be reset to 0.')){
+        if(window.confirm('Are you sure to you want to clear this card? All records will be deleted.')){
             this.props.dispatch({type: 'CLEAR_CARD', payload: this.props.currentClient.id})
         }
     }

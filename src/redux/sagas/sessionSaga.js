@@ -8,6 +8,7 @@ function* clearCard(action) {
         alert('Card cleared!');
         yield put ({type: 'FETCH_CLIENTS'}); 
         yield put ({type: 'FETCH_SESSIONS'});
+        yield put ({type: 'FETCH_REMINDERS'});
     } catch (error){
         console.log('Error deleting card', error); 
     }
@@ -24,7 +25,7 @@ function* deleteSession(action) {
 function* markSent(action) {
     try {
         yield axios.post(`/api/sessions/reminders?id=${action.payload.id}`);
-        yield put ({type: 'FETCH_REMINDERS'});
+        yield put ({ type: 'FETCH_REMINDERS' });
     } catch ( error ){
         console.log('Error marking email as sent')
     }

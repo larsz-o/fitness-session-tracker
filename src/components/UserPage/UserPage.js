@@ -13,6 +13,7 @@ class UserPage extends Component {
   componentDidMount() {
     this.getClients();
     this.getSessions();
+    this.getReminders();
   }
   getClients = () => {
     this.props.dispatch({ type: 'FETCH_CLIENTS' });

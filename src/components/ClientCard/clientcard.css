@@ -19,3 +19,9 @@
     border-radius: 5px;
     font-size: 0.7em;
 }
+
+.reminders {
+    color: rgb(224, 109, 14);
+    font-weight: 400;
+    font-size: 0.9em;
+}
