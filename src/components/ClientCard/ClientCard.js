@@ -36,7 +36,7 @@ class ClientCard extends Component {
                     {clientReminder.length > 0 && <div className="reminders">
                         {clientReminder[0].active && <p>Payment reminder sent: {moment(clientReminder[0].date).format('MMMM Do YYYY')}</p>}
                     </div>}
-                    <p className="highlight">Prepaid for {this.props.currentClient.sessions} sessions</p>
+                    <p><span className="highlight">Prepaid for {this.props.currentClient.sessions} sessions</span></p>
                     <div className="flex-box">
                         {sessions.map((session, i) => {
                             return (
