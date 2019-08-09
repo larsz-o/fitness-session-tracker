@@ -51,17 +51,39 @@ router.post('/reminders', (req, res) => {
     if(req.isAuthenticated()){
         const id = req.query.id;
         const today = new Date();
-        console.log('my info is: ' + id, today, req.user.id);
-        const query = `INSERT INTO "reminders" ("client_id", "date", "active", "trainer_id") VALUES ($1, $2, $3, $4) `;
-        pool.query(query, [id, today, true, req.user.id]).then((results) => {
-            res.sendStatus(201);
-        }).catch((error) => {
-            console.log('Error posting reminder', error); 
-        })
-    } else {
-        res.sendStatus(403);
-    }
+        (async () => {
+            const client = await pool.connect();
+            try {
+                let query = `SELECT * FROM "reminders" WHERE "client_id" = $1;`;
+                let response = await client.query(query, [id]);
+                if (response.rows.length > 0){
+                    console.log('Reminder record exists');
+                    query = `UPDATE "reminders" SET "date" = $1, "active" = true WHERE "client_id" = $2;`;
+                    await client.query(query, [today, id]);
+                    await client.query('COMMIT');
+                    res.sendStatus(201);
+                } else {
+                    query = `INSERT INTO "reminders" ("client_id", "date", "active", "trainer_id") VALUES ($1, $2, $3, $4) `;
+                    await client.query(query, [id, today, true, id]);
+                    await client.query('COMMIT');
+                    res.sendStatus(201);
+                }
+            } catch (error){
+                console.log('ROLLBACK', error); 
+                await client.query('ROLLBACK');
+                throw error;
+            } finally {
+                client.release;
+            }
+        })().catch((error) => {
+            console.log('CATCH', error); 
+            res.sendStatus(500); 
+        });   
+        } else {
+            res.sendStatus(403);
+ } 
 })
+
 
 //deletes all recorded sessions and sets a client's prepaid sessions back down to 0 
 router.delete('/clear', (req, res) => {
