@@ -93,13 +93,6 @@ h2, h3 {
     font-weight: 200;
     font-size: 2em;
 }
-.highlight {
-    background-color: #3d663d;
-    color: white;
-    text-shadow: 2px 2px rgb(224, 109, 14);
-    padding: 2px;
-    border-radius: 5px;
-}
 input {
     margin: 5px;
     margin-bottom: 10px;
