@@ -46,7 +46,7 @@ class ClientCard extends Component {
                             );
                         })}
                     </div>
-                    {sessions.length > 0 && <div className="bottom"><Button variant="contained" onClick={this.clearCard}>Mark Paid</Button></div>}
+                    {sessions.length > 0 && <div className="bottom"><Button variant="contained" color="secondary" onClick={this.clearCard}>Mark as Paid</Button></div>}
                 </div>
             </div>
         );
