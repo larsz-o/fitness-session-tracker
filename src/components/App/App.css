@@ -30,6 +30,10 @@ body {
 .center{
     text-align: center; 
  }
+ .clients-list {
+     padding: 5px; 
+
+ }
 .date{
     padding: 1vh; 
 }
@@ -89,7 +93,10 @@ h2, h3 {
     font-weight: 200;
     font-size: 2em;
 }
-
+.highlight {
+    background-color: #3d663d;
+    color: white;
+}
 input {
     margin: 5px;
     margin-bottom: 10px;

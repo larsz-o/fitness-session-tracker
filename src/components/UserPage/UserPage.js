@@ -35,7 +35,7 @@ class UserPage extends Component {
       <div className="body-div">
         <div className="flex-box">
             <h2>Select a Client</h2><br/>
-          <NativeSelect onChange={(event)=>this.handleClientChange(event)}>
+          <NativeSelect className="clients-list" onChange={(event)=>this.handleClientChange(event)}>
           <option value=''></option>
           {this.props.clients.map((client, i) => {
             return (
