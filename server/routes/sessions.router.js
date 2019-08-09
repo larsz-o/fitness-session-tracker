@@ -56,6 +56,7 @@ router.post('/reminders', (req, res) => {
             try {
                 let query = `SELECT * FROM "reminders" WHERE "client_id" = $1;`;
                 let response = await client.query(query, [id]);
+                console.log(response); 
                 if (response.rows.length > 0){
                     console.log('Reminder record exists');
                     query = `UPDATE "reminders" SET "date" = $1, "active" = true WHERE "client_id" = $2;`;
@@ -85,7 +86,7 @@ router.post('/reminders', (req, res) => {
 })
 
 
-//deletes all recorded sessions and sets a client's prepaid sessions back down to 0 
+//deletes all recorded sessions and sets a client's reminder status to false (clearing any reminders from the card)
 router.delete('/clear', (req, res) => {
     if(req.isAuthenticated()){
         (async () => {
