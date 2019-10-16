@@ -33,5 +33,6 @@
 .padding-left{
   padding: 5vh;
   background-color: white;
+  min-height: 30vh;
 
 }

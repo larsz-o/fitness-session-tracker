@@ -40,7 +40,7 @@ class RegisterPage extends Component {
 
   render() {
     return (
-      <div className="body-div">
+      <div className="body-div white">
         {this.props.errors.registrationMessage && (
           <h2
             className="alert"
@@ -91,7 +91,6 @@ class RegisterPage extends Component {
               type="submit"
               name="submit"
               variant="contained"
-              color="primary"
             >Register</Button>
           </div>
           <br/>

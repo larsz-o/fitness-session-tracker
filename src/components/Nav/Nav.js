@@ -8,7 +8,7 @@ const Nav = (props) => (
   <div className="padding-left">
     <div className="nav">
     <Link to="/dashboard">
-    <img src={require('../../images/larger-logo-test.jpg')} alt="fitness meets wellness logo"/>
+    <img src={require('../../images/larger-logo-test.jpg')} alt="fitness meets wellness logo" height="100%"/>
     </Link>
     </div>
       <Link className="nav-link" to="/">

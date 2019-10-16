@@ -72,10 +72,10 @@ let isDesktop = this.state.isDesktop;
         </div>
         {this.state.view !== 'add' && 
           <div className="center">
-            <Button variant="contained" color="primary" onClick={()=>this.setView('add')}>Add Client</Button>
+            <Button variant="contained" onClick={()=>this.setView('add')}>Add Client</Button>
         </div>}
        
-        <div className="flex-container body-div">
+        <div className="flex-container body-div column-12">
           {this.state.view === 'add' &&
           <div className="flex-box">
             <div className="add-form">
@@ -83,11 +83,11 @@ let isDesktop = this.state.isDesktop;
                 <TextField autoComplete="off" type="text" variant="outlined" label="Last Name" value={this.state.last_name} onChange={(event) => this.handleChangeFor(event, 'last_name')} />
                 <TextField autoComplete="off" type="text" variant="outlined" label="Email Address" value={this.state.email_address} onChange={(event) => this.handleChangeFor(event, 'email_address')} />
                 <TextField autoComplete="off" type="number" variant="outlined" label="Sessions Purchased" onChange={(event) =>this.handleChangeFor(event, 'sessions')}/>
-                <Button color="primary" variant="contained" size="large" onClick={this.addClient}>Add</Button>
+                <Button variant="contained" size="large" onClick={this.addClient}>Add</Button>
                 <Button onClick={()=>this.setView('edit')}>Cancel</Button>
            </div> </div>}
         {this.state.view === 'edit' && 
-          <div>{isDesktop &&
+          <div className="column-12">{isDesktop &&
             <Table className="manage-table">
               <TableHead>
                 <TableRow>
