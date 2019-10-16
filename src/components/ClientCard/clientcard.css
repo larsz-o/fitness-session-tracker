@@ -14,7 +14,7 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 .card-title{
-    background-color: #82ba00;
+    background-color: lightgray;
     text-shadow: 1px 1px white; 
     border-radius: 5px;
     font-size: 0.7em;

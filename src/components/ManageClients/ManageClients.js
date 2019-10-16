@@ -87,28 +87,7 @@ let isDesktop = this.state.isDesktop;
                 <Button onClick={()=>this.setView('edit')}>Cancel</Button>
            </div> </div>}
         {this.state.view === 'edit' && 
-          <div className="column-12">{isDesktop &&
-            <Table className="manage-table">
-              <TableHead>
-                <TableRow>
-                  <TableCell>First Name</TableCell>
-                  <TableCell>Last Name</TableCell>
-                  <TableCell>Email</TableCell>
-                  <TableCell>Prepaid Sessions</TableCell>
-                  <TableCell>Sessions Remaining</TableCell>
-                  <TableCell>Edit</TableCell>
-                  <TableCell>Delete</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-              {this.props.clients.map((client, i) => {
-          return(
-            <ManageRow key={i} client={client}/>
-          );
-        })}
-              </TableBody>
-            </Table>}
-            {!isDesktop && <div className="client-card-container">
+          <div className="column-12"><div className="client-card-container">
                 {this.props.clients.map((client, i) => {
                   return (
                     <div className="card" key={i}>
@@ -123,7 +102,7 @@ let isDesktop = this.state.isDesktop;
                   )
                 })}
 
-            </div>}
+            </div>
         </div>}
    
         </div>
