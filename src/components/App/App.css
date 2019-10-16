@@ -4,8 +4,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0px;
-    /* background-color:#FAF2E6;  */
-    background-color: #82ba00;
+    background-color: rgba(130,186,0, .5)
 }
 .body-div {
     margin-top: 10vh;
