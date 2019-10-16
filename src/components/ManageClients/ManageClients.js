@@ -87,10 +87,10 @@ let isDesktop = this.state.isDesktop;
                 <Button onClick={()=>this.setView('edit')}>Cancel</Button>
            </div> </div>}
         {this.state.view === 'edit' && 
-          <div className="column-12"><div className="client-card-container">
+          <div className="column-12"><div className="client-card-container flex-box">
                 {this.props.clients.map((client, i) => {
                   return (
-                    <div className="card" key={i}>
+                    <div className="card column-8" key={i}>
                       <div className="flex-box card-title"> <h3>{client.first_name} {client.last_name}</h3> <EditButton clientToEdit={client}/>
                       <DeleteClient client={client}/></div>
                       <p>Email: <a href={`mailto:${client.email_address}`}>{client.email_address}</a></p>
